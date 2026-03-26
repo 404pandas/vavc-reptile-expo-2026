@@ -1,0 +1,499 @@
+/* ============================================================
+   All Animal Reptile Expo 2026 — Custom Styles
+   Base: Materialize CSS (loaded via CDN)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --expo-green:   #2e7d32;
+  --expo-green-l: #43a047;
+  --expo-gold:    #f9a825;
+  --expo-dark:    #1a1a1a;
+  --expo-surface: #f5f5f0;
+  --expo-text:    #212121;
+  --expo-muted:   #616161;
+  --scale-img:    scale(1.04);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--expo-surface);
+  color: var(--expo-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main { flex: 1; }
+
+h1, h2, h3, .brand-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── Navbar ───────────────────────────────────────────────── */
+nav.expo-nav {
+  background: var(--expo-dark) !important;
+  border-bottom: 3px solid var(--expo-gold);
+}
+
+nav .brand-logo {
+  font-size: 1.5rem;
+  color: var(--expo-gold) !important;
+  letter-spacing: 0.08em;
+  padding-left: 1rem;
+}
+
+nav .brand-logo span.accent { color: #fff; }
+
+nav ul a {
+  color: #e0e0e0 !important;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+nav ul a:hover { color: var(--expo-gold) !important; }
+
+/* Sidenav */
+.sidenav { background: var(--expo-dark); }
+.sidenav li a { color: #e0e0e0; font-weight: 600; }
+.sidenav li a:hover { color: var(--expo-gold); }
+.sidenav .sidenav-close { color: var(--expo-gold); }
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.expo-hero {
+  background: linear-gradient(135deg, #1b2a1c 0%, #2e4a1e 50%, #1a3a1a 100%);
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.expo-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.expo-hero .hero-badge {
+  display: inline-block;
+  background: var(--expo-gold);
+  color: var(--expo-dark);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  padding: 0.2rem 1rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.expo-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: #fff;
+  line-height: 1.05;
+  margin: 0.5rem 0;
+  text-shadow: 2px 4px 20px rgba(0,0,0,0.4);
+}
+
+.expo-hero h1 .gold { color: var(--expo-gold); }
+
+.expo-hero p.subtitle {
+  color: #b0c8b0;
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+}
+
+/* Animal page hero (smaller) */
+.animal-hero {
+  background: linear-gradient(135deg, #1b2a1c 0%, #2d5a1e 100%);
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+}
+.animal-hero .animal-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.animal-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #fff;
+  margin: 0;
+}
+.animal-hero .animal-subtitle {
+  color: var(--expo-gold);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+}
+
+/* ── Animal Cards (index) ─────────────────────────────────── */
+.animals-section { padding: 3rem 0; }
+.animals-section h2 {
+  font-size: 2rem;
+  color: var(--expo-green);
+  margin-bottom: 0.25rem;
+}
+
+.animal-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+  cursor: pointer;
+  background: #fff;
+  height: 100%;
+}
+
+.animal-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18) !important;
+  transform: translateY(-4px);
+}
+
+.animal-card .card-image {
+  background: linear-gradient(135deg, #2e4a1e, #1a3a1a);
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  position: relative;
+}
+
+.animal-card .card-image .diff-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.65rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.diff-beginner  { background: #43a047; color: #fff; }
+.diff-moderate  { background: #f9a825; color: #1a1a1a; }
+.diff-advanced  { background: #e53935; color: #fff; }
+
+.animal-card .card-content { padding: 1.2rem !important; }
+.animal-card .card-content .card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: var(--expo-dark);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.animal-card .card-content p {
+  font-size: 0.85rem;
+  color: var(--expo-muted);
+  line-height: 1.5;
+  margin: 0 0 0.8rem;
+}
+.animal-card .card-action {
+  padding: 0.8rem 1.2rem !important;
+  border-top: 1px solid #f0f0f0 !important;
+}
+.animal-card .card-action a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--expo-green) !important;
+}
+.animal-card .card-action a:hover { color: var(--expo-gold) !important; }
+
+/* ── Care Info Sections ───────────────────────────────────── */
+.care-section { padding: 2.5rem 0; }
+.care-section:nth-child(even) { background: #fff; }
+
+.care-card {
+  background: #fff;
+  border-radius: 8px;
+  border-left: 4px solid var(--expo-green);
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.care-card h3 {
+  font-size: 1.3rem;
+  color: var(--expo-green);
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.care-card ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.care-card ul li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.care-card ul li strong { color: var(--expo-dark); }
+
+/* Quick stats bar */
+.quick-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--expo-dark);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.stat-item .stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--expo-gold);
+  display: block;
+  line-height: 1.1;
+}
+
+.stat-item .stat-label {
+  font-size: 0.7rem;
+  color: #9e9e9e;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Care Sheet / PDF Section ─────────────────────────────── */
+.caresheet-section {
+  background: linear-gradient(135deg, #1b2a1c, #2d4a1e);
+  padding: 3rem 0;
+  color: #fff;
+}
+.caresheet-section h2 {
+  color: var(--expo-gold);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.caresheet-section p { color: #b0c8b0; margin-bottom: 1.5rem; }
+
+.pdf-viewer-frame {
+  width: 100%;
+  height: 700px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.download-btn {
+  background: var(--expo-gold) !important;
+  color: var(--expo-dark) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 4px !important;
+  padding: 0 2rem !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  box-shadow: 0 4px 14px rgba(249,168,37,0.4) !important;
+  transition: all 0.2s !important;
+}
+.download-btn:hover {
+  background: #fbc02d !important;
+  box-shadow: 0 6px 20px rgba(249,168,37,0.55) !important;
+}
+
+.view-btn {
+  background: transparent !important;
+  color: var(--expo-gold) !important;
+  border: 2px solid var(--expo-gold) !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 4px !important;
+  padding: 0 2rem !important;
+  height: 48px !important;
+  line-height: 44px !important;
+  transition: all 0.2s !important;
+}
+.view-btn:hover {
+  background: rgba(249,168,37,0.1) !important;
+}
+
+/* ── Vet Page ─────────────────────────────────────────────── */
+.vet-hero {
+  background: linear-gradient(135deg, #0d1b2a, #1a3a4a);
+  padding: 4rem 0;
+  text-align: center;
+}
+.vet-hero h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.5rem); }
+.vet-hero .vet-tagline { color: #80cbc4; font-size: 1.1rem; margin-top: 0.5rem; }
+
+.vet-info-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+}
+
+.vet-info-card h3 {
+  font-size: 1.4rem;
+  color: #0d47a1;
+  margin: 0 0 1rem;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row .day { font-weight: 700; color: var(--expo-dark); }
+.hours-row .time { color: var(--expo-muted); }
+
+.service-chip {
+  display: inline-block;
+  background: #e8f5e9;
+  color: var(--expo-green);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 4px;
+  border: 1px solid #c8e6c9;
+}
+
+.map-embed {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  width: 100%;
+  height: 380px;
+}
+.map-embed iframe { width: 100%; height: 100%; border: none; }
+
+.team-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
+}
+.team-card .team-emoji { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
+.team-card h4 { margin: 0 0 0.2rem; font-size: 1.1rem; color: var(--expo-dark); }
+.team-card .team-role {
+  font-size: 0.75rem;
+  color: #fff;
+  background: var(--expo-green);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-weight: 700;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+footer.expo-footer {
+  background: var(--expo-dark);
+  color: #9e9e9e;
+  padding: 2.5rem 0 1.5rem;
+  border-top: 3px solid var(--expo-gold);
+}
+
+footer .footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: var(--expo-gold);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+footer a { color: #80c8a0 !important; }
+footer a:hover { color: var(--expo-gold) !important; }
+
+footer .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+footer .footer-links li { margin-bottom: 0.4rem; }
+footer .footer-links a {
+  font-size: 0.85rem;
+  color: #9e9e9e !important;
+  transition: color 0.2s;
+}
+
+footer .footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  text-align: center;
+  color: #555;
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────── */
+.expo-breadcrumb {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.6rem 0;
+}
+.expo-breadcrumb .breadcrumb {
+  color: var(--expo-muted);
+  font-size: 0.82rem;
+}
+.expo-breadcrumb .breadcrumb::before { color: #ccc !important; }
+.expo-breadcrumb a { color: var(--expo-green) !important; }
+
+/* ── Warning/Tip Chips ───────────────────────────────────── */
+.care-warning {
+  background: #fff8e1;
+  border: 1px solid var(--expo-gold);
+  border-left: 4px solid var(--expo-gold);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.care-tip {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-left: 4px solid var(--expo-green);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* ── Utility ──────────────────────────────────────────────── */
+.section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: var(--expo-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.green-text { color: var(--expo-green) !important; }
+.gold-text  { color: var(--expo-gold) !important; }
+
+@media (max-width: 600px) {
+  .expo-hero { padding: 3rem 0 2.5rem; }
+  .quick-stats { gap: 0.75rem; }
+  .stat-item .stat-value { font-size: 1.4rem; }
+  .pdf-viewer-frame { height: 500px; }
+}

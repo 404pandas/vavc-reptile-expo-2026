@@ -1,0 +1,68 @@
+# Netlify configuration for All Animal Reptile Expo 2026
+# Routes /animal-name → views/animal-name.html (clean URLs, no .html extension)
+
+[build]
+  publish = "views"
+
+# Static file redirects for clean URLs
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tegu-lizard"
+  to = "/tegu-lizard.html"
+  status = 200
+
+[[redirects]]
+  from = "/savannah-monitor"
+  to = "/savannah-monitor.html"
+  status = 200
+
+[[redirects]]
+  from = "/russian-tortoise"
+  to = "/russian-tortoise.html"
+  status = 200
+
+[[redirects]]
+  from = "/ball-python"
+  to = "/ball-python.html"
+  status = 200
+
+[[redirects]]
+  from = "/bearded-dragon"
+  to = "/bearded-dragon.html"
+  status = 200
+
+[[redirects]]
+  from = "/blue-tongue-skink"
+  to = "/blue-tongue-skink.html"
+  status = 200
+
+[[redirects]]
+  from = "/crested-gecko"
+  to = "/crested-gecko.html"
+  status = 200
+
+[[redirects]]
+  from = "/red-eared-slider"
+  to = "/red-eared-slider.html"
+  status = 200
+
+[[redirects]]
+  from = "/vital-animal-vet"
+  to = "/vital-animal-vet.html"
+  status = 200
+
+# Serve static assets (CSS, JS, PDFs) from public/
+[[redirects]]
+  from = "/css/*"
+  to = "https://allanimal.netlify.app/css/:splat"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
