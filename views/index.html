@@ -1,361 +1,1303 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Animal 2026 Reptile Expo — Care Information Hub</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <style>
-    .search-widget {
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem 2rem 2.25rem;
-      box-shadow: 0 8px 40px rgba(0,0,0,.2);
-      max-width: 560px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-    .search-widget .prompt {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      color: #1a1a1a;
-      letter-spacing: .06em;
-      margin-bottom: .75rem;
-      display: block;
-    }
-    .search-widget .prompt span { color: #f9a825; }
-    .search-input-wrap { position: relative; }
-    .search-input-wrap input {
-      width: 100%;
-      padding: .85rem 1.1rem;
-      font-size: 1rem;
-      font-family: 'Nunito', sans-serif;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      outline: none;
-      margin: 0;
-      height: auto;
-      box-shadow: none;
-      transition: border-color .2s;
-    }
-    .search-input-wrap input:focus { border-color: #2e7d32; box-shadow: 0 0 0 3px rgba(46,125,50,.12); }
-    .search-suggestions {
-      display: none;
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 0; right: 0;
-      background: #fff;
-      border: 2px solid #2e7d32;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.14);
-      z-index: 100;
-      max-height: 280px;
-      overflow-y: auto;
-    }
-    .search-suggestions.open { display: block; }
-    .suggestion-item {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      padding: .7rem 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      color: #212121;
-      font-family: 'Nunito', sans-serif;
-      font-size: .95rem;
-      border-bottom: 1px solid #f5f5f5;
-    }
-    .suggestion-item:last-child { border-bottom: none; }
-    .suggestion-item:hover, .suggestion-item.active { background: #e8f5e9; color: #1b5e20; }
-    .suggestion-item .sug-emoji { font-size: 1.3rem; flex-shrink: 0; }
-    .suggestion-item .sug-name { font-weight: 700; flex: 1; }
-    .suggestion-item .sug-diff { font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; flex-shrink: 0; }
-    .no-results { padding: 1rem; color: #9e9e9e; font-size: .9rem; text-align: center; }
-  </style>
-</head>
-<body>
-
-<ul class="sidenav" id="mobile-nav">
-  <li><div class="user-view" style="background:#1a1a1a;padding:1rem;">
-    <span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#f9a825;">🦎 All Animal Expo 2026</span>
-  </div></li>
-  <li><a href="/">Home</a></li>
-  <li><div class="divider" style="background:#333"></div></li>
-  <li><a class="subheader" style="color:#9e9e9e;font-size:.75rem;letter-spacing:.1em;">ANIMALS</a></li>
-  <li><a href="/argentine-horned-frog">Argentine Horned Frog</a></li>
-  <li><a href="/ball-python">Ball Python</a></li>
-  <li><a href="/bearded-dragon">Bearded Dragon</a></li>
-  <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
-  <li><a href="/boa-constrictor">Boa Constrictor</a></li>
-  <li><a href="/box-turtle">Box Turtle</a></li>
-  <li><a href="/chinese-water-dragon">Chinese Water Dragon</a></li>
-  <li><a href="/collared-lizard">Collared Lizard</a></li>
-  <li><a href="/corn-snake">Corn Snake</a></li>
-  <li><a href="/dart-frog">Dart Frog</a></li>
-  <li><a href="/iguana">Iguana</a></li>
-  <li><a href="/leopard-gecko">Leopard Gecko</a></li>
-  <li><a href="/panther-chameleon">Panther Chameleon</a></li>
-  <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
-  <li><a href="/red-eyed-tree-frog">Red-Eyed Tree Frog</a></li>
-  <li><a href="/red-footed-tortoise">Red-Footed Tortoise</a></li>
-  <li><a href="/russian-tortoise">Russian Tortoise</a></li>
-  <li><a href="/savannah-monitor">Savannah Monitor</a></li>
-  <li><a href="/sulcata-tortoise">Sulcata Tortoise</a></li>
-  <li><a href="/tegu">Tegu</a></li>
-  <li><a href="/uromastyx">Uromastyx</a></li>
-  <li><a href="/veiled-chameleon">Veiled Chameleon</a></li>
-  <li><a href="/white-tree-frog">White Tree Frog</a></li>
-  <li><div class="divider" style="background:#333"></div></li>
-  <li><a class="subheader" style="color:#9e9e9e;font-size:.75rem;letter-spacing:.1em;">CARE GUIDES</a></li>
-  <li><a href="/water-quality">💧 Water Quality</a></li>
-  <li><a href="/uv-light">☀️ UV Light</a></li>
-  <li><a href="/hibernation">❄️ Hibernation</a></li>
-  <li><div class="divider" style="background:#333"></div></li>
-  <li><a href="/vital-animal-vet" style="color:#f9a825;">🏥 Our Vet Partner</a></li>
-</ul>
-
-<nav class="expo-nav">
-  <div class="nav-wrapper container">
-    <a href="/" class="brand-logo">🦎 <span class="accent">All Animal</span> Expo <span style="color:#f9a825">2026</span></a>
-    <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vital Animal 2026 Reptile Expo — Care Information Hub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .search-widget {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem 2rem 2.25rem;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+        max-width: 560px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .search-widget .prompt {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        color: #1a1a1a;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+      .search-widget .prompt span {
+        color: #f9a825;
+      }
+      .search-input-wrap {
+        position: relative;
+      }
+      .search-input-wrap input {
+        width: 100%;
+        padding: 0.85rem 1.1rem;
+        font-size: 1rem;
+        font-family: "Nunito", sans-serif;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        outline: none;
+        margin: 0;
+        height: auto;
+        box-shadow: none;
+        transition: border-color 0.2s;
+      }
+      .search-input-wrap input:focus {
+        border-color: #2e7d32;
+        box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.12);
+      }
+      .search-suggestions {
+        display: none;
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 2px solid #2e7d32;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+        z-index: 100;
+        max-height: 280px;
+        overflow-y: auto;
+      }
+      .search-suggestions.open {
+        display: block;
+      }
+      .suggestion-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        color: #212121;
+        font-family: "Nunito", sans-serif;
+        font-size: 0.95rem;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .suggestion-item:last-child {
+        border-bottom: none;
+      }
+      .suggestion-item:hover,
+      .suggestion-item.active {
+        background: #e8f5e9;
+        color: #1b5e20;
+      }
+      .suggestion-item .sug-emoji {
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+      .suggestion-item .sug-name {
+        font-weight: 700;
+        flex: 1;
+      }
+      .suggestion-item .sug-diff {
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 20px;
+        flex-shrink: 0;
+      }
+      .no-results {
+        padding: 1rem;
+        color: #9e9e9e;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="sidenav" id="mobile-nav">
+      <li>
+        <div class="user-view" style="background: #1a1a1a; padding: 1rem">
+          <span
+            style="
+              font-family: 'Bebas Neue', sans-serif;
+              font-size: 1.3rem;
+              color: #f9a825;
+            "
+            >🦎 Vital Animal Expo Care Guide 2026</span
+          >
+        </div>
+      </li>
       <li><a href="/">Home</a></li>
-      <li><a href="/water-quality">💧 Water</a></li>
+      <li><div class="divider" style="background: #333"></div></li>
+      <li>
+        <a
+          class="subheader"
+          style="color: #9e9e9e; font-size: 0.75rem; letter-spacing: 0.1em"
+          >ANIMALS</a
+        >
+      </li>
+      <li><a href="/argentine-horned-frog">Argentine Horned Frog</a></li>
+      <li><a href="/ball-python">Ball Python</a></li>
+      <li><a href="/bearded-dragon">Bearded Dragon</a></li>
+      <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
+      <li><a href="/boa-constrictor">Boa Constrictor</a></li>
+      <li><a href="/box-turtle">Box Turtle</a></li>
+      <li><a href="/chinese-water-dragon">Chinese Water Dragon</a></li>
+      <li><a href="/collared-lizard">Collared Lizard</a></li>
+      <li><a href="/corn-snake">Corn Snake</a></li>
+      <li><a href="/dart-frog">Dart Frog</a></li>
+      <li><a href="/iguana">Iguana</a></li>
+      <li><a href="/leopard-gecko">Leopard Gecko</a></li>
+      <li><a href="/panther-chameleon">Panther Chameleon</a></li>
+      <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
+      <li><a href="/red-eyed-tree-frog">Red-Eyed Tree Frog</a></li>
+      <li><a href="/red-footed-tortoise">Red-Footed Tortoise</a></li>
+      <li><a href="/russian-tortoise">Russian Tortoise</a></li>
+      <li><a href="/savannah-monitor">Savannah Monitor</a></li>
+      <li><a href="/sulcata-tortoise">Sulcata Tortoise</a></li>
+      <li><a href="/tegu">Tegu</a></li>
+      <li><a href="/uromastyx">Uromastyx</a></li>
+      <li><a href="/veiled-chameleon">Veiled Chameleon</a></li>
+      <li><a href="/white-tree-frog">White Tree Frog</a></li>
+      <li><div class="divider" style="background: #333"></div></li>
+      <li>
+        <a
+          class="subheader"
+          style="color: #9e9e9e; font-size: 0.75rem; letter-spacing: 0.1em"
+          >CARE GUIDES</a
+        >
+      </li>
+      <li><a href="/water-quality">💧 Water Quality</a></li>
       <li><a href="/uv-light">☀️ UV Light</a></li>
       <li><a href="/hibernation">❄️ Hibernation</a></li>
-      <li><a href="/vital-animal-vet" style="color:#f9a825!important">🏥 Vet Partner</a></li>
+      <li><div class="divider" style="background: #333"></div></li>
+      <li>
+        <a href="/vital-animal-vet" style="color: #f9a825"
+          >🏥 Our Vet Partner</a
+        >
+      </li>
     </ul>
-  </div>
-</nav>
 
-<main>
-  <section class="expo-hero">
-    <div class="container" style="position:relative;z-index:1;">
-      <span class="hero-badge">SIOUX FALLS · 2026</span>
-      <h1>All Animal<br><span class="gold">Reptile Expo</span></h1>
-      <p class="subtitle">Your complete care information hub for every animal at the 2026 expo.</p>
-      <div class="search-widget">
-        <span class="prompt">I have a <span>...</span></span>
-        <div class="search-input-wrap">
-          <input type="text" id="animal-search" placeholder="Type an animal (e.g. gecko, python, tortoise...)" autocomplete="off" />
-          <div class="search-suggestions" id="suggestions"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="animals-section" id="animals">
-    <div class="container">
-      <p class="section-label">2026 Featured Animals</p>
-      <h2>All Care Sheets</h2>
-      <p style="color:#616161;margin-bottom:2rem;">Select any animal for its full care sheet and downloadable PDF.</p>
-      <div class="row">
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/argentine-horned-frog" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐸<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">Argentine Horned Frog</span><p>The classic "Pacman frog" — sedentary, easy to care for, and full of personality.</p></div><div class="card-action"><a href="/argentine-horned-frog"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/ball-python" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐍<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">Ball Python</span><p>The most popular pet snake — docile, compact, and available in hundreds of morphs.</p></div><div class="card-action"><a href="/ball-python"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/bearded-dragon" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦕<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">Bearded Dragon</span><p>Friendly, interactive, and diurnal — one of the most popular pet reptiles.</p></div><div class="card-action"><a href="/bearded-dragon"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/blue-tongue-skink" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🔵<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Blue-Tongue Skink</span><p>Chunky, good-natured Australian skinks with brilliant blue tongues.</p></div><div class="card-action"><a href="/blue-tongue-skink"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/boa-constrictor" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐍<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Boa Constrictor</span><p>A classic large constrictor — impressive, long-lived, and rewarding for experienced keepers.</p></div><div class="card-action"><a href="/boa-constrictor"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/box-turtle" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐢<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Box Turtle</span><p>Native North American turtles that can live 50+ years with proper care.</p></div><div class="card-action"><a href="/box-turtle"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/chinese-water-dragon" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐉<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Chinese Water Dragon</span><p>Vibrant green arboreal lizards that love climbing and water features.</p></div><div class="card-action"><a href="/chinese-water-dragon"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/collared-lizard" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Collared Lizard</span><p>Fast, colorful desert lizards — one of the few reptiles that runs on two legs.</p></div><div class="card-action"><a href="/collared-lizard"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/corn-snake" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐍<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">Corn Snake</span><p>The ideal first snake — forgiving, active, and available in stunning color morphs.</p></div><div class="card-action"><a href="/corn-snake"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/dart-frog" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐸<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Dart Frog</span><p>Jewel-bright tropical frogs that live in stunning bioactive vivariums.</p></div><div class="card-action"><a href="/dart-frog"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/iguana" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Iguana</span><p>Iconic large herbivores requiring major space and a serious keeper's commitment.</p></div><div class="card-action"><a href="/iguana"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/leopard-gecko" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">Leopard Gecko</span><p>Hardy, handleable, and long-lived — an excellent starter lizard for any setting.</p></div><div class="card-action"><a href="/leopard-gecko"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/panther-chameleon" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Panther Chameleon</span><p>Stunning color-changing masters from Madagascar — rewarding but demanding.</p></div><div class="card-action"><a href="/panther-chameleon"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/red-eared-slider" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🌊<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Red-Eared Slider</span><p>America's most popular aquatic turtle — requires a proper filtered aquatic setup.</p></div><div class="card-action"><a href="/red-eared-slider"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/red-eyed-tree-frog" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐸<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Red-Eyed Tree Frog</span><p>The iconic neon-green frog with vivid red eyes — a showstopper in any vivarium.</p></div><div class="card-action"><a href="/red-eyed-tree-frog"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/red-footed-tortoise" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐢<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Red-Footed Tortoise</span><p>Tropical South American tortoises with colorful markings and friendly personalities.</p></div><div class="card-action"><a href="/red-footed-tortoise"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/russian-tortoise" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐢<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Russian Tortoise</span><p>Hardy, personable tortoises that thrive outdoors and live 40–50+ years.</p></div><div class="card-action"><a href="/russian-tortoise"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/savannah-monitor" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦖<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Savannah Monitor</span><p>Powerful African monitors that reward experienced keepers with years of interaction.</p></div><div class="card-action"><a href="/savannah-monitor"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/sulcata-tortoise" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐢<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Sulcata Tortoise</span><p>The 3rd largest tortoise species — a multigenerational commitment that can top 100 lbs.</p></div><div class="card-action"><a href="/sulcata-tortoise"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/tegu" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Tegu</span><p>The "dogs of the reptile world" — intelligent, trainable, and deeply rewarding.</p></div><div class="card-action"><a href="/tegu"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/uromastyx" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-moderate">Moderate</span></div><div class="card-content"><span class="card-title">Uromastyx</span><p>Desert herbivores with spiky tails that thrive in extreme heat and bone-dry conditions.</p></div><div class="card-action"><a href="/uromastyx"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/veiled-chameleon" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🦎<span class="diff-badge diff-advanced">Advanced</span></div><div class="card-content"><span class="card-title">Veiled Chameleon</span><p>Dramatic and colorful chameleons — spectacular to keep but needing precise conditions.</p></div><div class="card-action"><a href="/veiled-chameleon"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-        <div class="col s12 m6 l4" style="margin-bottom:1.5rem;"><a href="/white-tree-frog" style="text-decoration:none;display:block;height:100%;"><div class="animal-card card z-depth-1"><div class="card-image">🐸<span class="diff-badge diff-beginner">Beginner</span></div><div class="card-content"><span class="card-title">White Tree Frog</span><p>Chubby, personable frogs from Australia — tolerant of handling and very long-lived.</p></div><div class="card-action"><a href="/white-tree-frog"><i class="material-icons tiny">open_in_new</i> View Care Sheet</a></div></div></a></div>
-      </div>
-      <div style="text-align:center;margin-top:1rem;">
-        <span class="diff-badge diff-beginner" style="margin:0 .4rem;">Beginner</span>
-        <span class="diff-badge diff-moderate" style="margin:0 .4rem;">Moderate</span>
-        <span class="diff-badge diff-advanced" style="margin:0 .4rem;">Advanced</span>
-        <span style="color:#9e9e9e;font-size:.78rem;display:block;margin-top:.5rem;">Difficulty ratings are general guidelines — all reptiles require research and commitment.</span>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#1a1a1a;padding:2.5rem 0;">
-    <div class="container" style="text-align:center;">
-      <p class="section-label" style="color:#555;">CARE GUIDES</p>
-      <h2 style="color:#fff;font-size:1.8rem;margin-bottom:1.5rem;">General Care Resources</h2>
-      <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
-        <a href="/water-quality" class="btn-large waves-effect" style="background:#1565c0;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;">💧 Water Quality</a>
-        <a href="/uv-light" class="btn-large waves-effect" style="background:#e65100;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;">☀️ UV Light</a>
-        <a href="/hibernation" class="btn-large waves-effect" style="background:#283593;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;">❄️ Hibernation</a>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:linear-gradient(135deg,#0d1b2a,#1a3a4a);padding:3rem 0;text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff;font-size:2rem;margin-bottom:.5rem;">Got your new animal home?</h2>
-      <p style="color:#80cbc4;margin-bottom:1.5rem;">Vital Animal Veterinary Clinic in Sioux Falls is our official exotic vet partner.</p>
-      <a href="/vital-animal-vet" class="btn-large download-btn waves-effect">
-        <i class="material-icons left">local_hospital</i>Meet Our Vet Partner
-      </a>
-    </div>
-  </section>
-</main>
-<footer class="expo-footer">
-  <div style="background:#1a2e1a;border-bottom:1px solid #2a3e2a;padding:1.25rem 0;text-align:center;">
-    <p style="margin:0;font-size:1rem;color:#c8e6c9;">
-      Made with 💓 by <a href="/vital-animal-vet" style="color:#f9a825;font-weight:700;">Vital Animal Veterinary Clinic</a> for the 2026 Reptile Expo
-    </p>
-  </div>
-  <div class="container" style="padding-top:2rem;">
-    <div class="row" style="margin-bottom:0;">
-      <div class="col s12 l3" style="margin-bottom:1.5rem;">
-        <span class="footer-logo">🏥 Vital Animal Vet Clinic</span>
-        <p style="font-size:.85rem;color:#757575;line-height:1.9;margin-top:.5rem;">
-          📍 2809 S Spring Ave<br>&nbsp;&nbsp;&nbsp;&nbsp;Sioux Falls, SD 57105<br>
-          📞 <a href="tel:6053399261">(605) 339-9261</a><br>
-          💬 <a href="sms:6054606094">(605) 460-6094</a><br>
-          📧 <a href="mailto:reception@vitalanimalvetclinic.com" style="font-size:.8rem;">reception@vitalanimalvetclinic.com</a><br>
-          🌐 <a href="https://vitalanimalvetclinic.com" target="_blank">vitalanimalvetclinic.com</a><br>
-          🕐 Mon–Fri: 8:00am – 5:00pm
-        </p>
-        <a href="https://petportal.vet/vavc/appointment/request" target="_blank"
-           style="display:inline-block;background:#1565c0;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;padding:6px 14px;border-radius:4px;font-size:.85rem;">
-          Book Appointment
-        </a>
-      </div>
-      <div class="col s6 m3 l2">
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;color:#9e9e9e;margin-bottom:.5rem;font-size:.85rem;">ANIMALS A–L</p>
-        <ul class="footer-links">
-          <li><a href="/argentine-horned-frog">Argentine Horned Frog</a></li>
-          <li><a href="/ball-python">Ball Python</a></li>
-          <li><a href="/bearded-dragon">Bearded Dragon</a></li>
-          <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
-          <li><a href="/boa-constrictor">Boa Constrictor</a></li>
-          <li><a href="/box-turtle">Box Turtle</a></li>
-          <li><a href="/chinese-water-dragon">Chinese Water Dragon</a></li>
-          <li><a href="/collared-lizard">Collared Lizard</a></li>
-          <li><a href="/corn-snake">Corn Snake</a></li>
-          <li><a href="/dart-frog">Dart Frog</a></li>
-          <li><a href="/iguana">Iguana</a></li>
-          <li><a href="/leopard-gecko">Leopard Gecko</a></li>
-        </ul>
-      </div>
-      <div class="col s6 m3 l2">
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;color:#9e9e9e;margin-bottom:.5rem;font-size:.85rem;">ANIMALS P–W</p>
-        <ul class="footer-links">
-          <li><a href="/panther-chameleon">Panther Chameleon</a></li>
-          <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
-          <li><a href="/red-eyed-tree-frog">Red-Eyed Tree Frog</a></li>
-          <li><a href="/red-footed-tortoise">Red-Footed Tortoise</a></li>
-          <li><a href="/russian-tortoise">Russian Tortoise</a></li>
-          <li><a href="/savannah-monitor">Savannah Monitor</a></li>
-          <li><a href="/sulcata-tortoise">Sulcata Tortoise</a></li>
-          <li><a href="/tegu">Tegu</a></li>
-          <li><a href="/uromastyx">Uromastyx</a></li>
-          <li><a href="/veiled-chameleon">Veiled Chameleon</a></li>
-          <li><a href="/white-tree-frog">White Tree Frog</a></li>
-        </ul>
-      </div>
-      <div class="col s6 m3 l2">
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;color:#9e9e9e;margin-bottom:.5rem;font-size:.85rem;">CARE GUIDES</p>
-        <ul class="footer-links">
-          <li><a href="/water-quality">💧 Water Quality</a></li>
+    <nav class="expo-nav">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo"
+          >🦎 <span class="accent">Vital Animal</span> Expo Care Guide
+          <span style="color: #f9a825">2026</span></a
+        >
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/water-quality">💧 Water</a></li>
           <li><a href="/uv-light">☀️ UV Light</a></li>
           <li><a href="/hibernation">❄️ Hibernation</a></li>
-        </ul>
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;color:#9e9e9e;margin:.75rem 0 .5rem;font-size:.85rem;">CONNECT</p>
-        <ul class="footer-links">
-          <li><a href="https://www.facebook.com/Vital-Animal-Veterinary-Clinic-100076364851885/" target="_blank">Facebook</a></li>
-          <li><a href="https://www.instagram.com/vitalanimalveterinaryclinic/" target="_blank">Instagram</a></li>
-          <li><a href="https://www.yelp.com/biz/vital-animal-veterinary-clinic-sioux-falls" target="_blank">Yelp</a></li>
+          <li>
+            <a href="/vital-animal-vet" style="color: #f9a825 !important"
+              >🏥 Vet Partner</a
+            >
+          </li>
         </ul>
       </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 All Animal Reptile Expo · Made with 💓 by Vital Animal Veterinary Clinic · Care information is for reference only · Always consult a qualified exotic vet
-    </div>
-  </div>
-</footer>
+    </nav>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/js/main.js"></script>
-<script>
-const ANIMALS = [
-  {name:'Argentine Horned Frog',slug:'argentine-horned-frog',emoji:'🐸',diff:'Beginner',dc:'diff-beginner'},
-  {name:'Ball Python',slug:'ball-python',emoji:'🐍',diff:'Beginner',dc:'diff-beginner'},
-  {name:'Bearded Dragon',slug:'bearded-dragon',emoji:'🦕',diff:'Beginner',dc:'diff-beginner'},
-  {name:'Blue-Tongue Skink',slug:'blue-tongue-skink',emoji:'🔵',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Boa Constrictor',slug:'boa-constrictor',emoji:'🐍',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Box Turtle',slug:'box-turtle',emoji:'🐢',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Chinese Water Dragon',slug:'chinese-water-dragon',emoji:'🐉',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Collared Lizard',slug:'collared-lizard',emoji:'🦎',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Corn Snake',slug:'corn-snake',emoji:'🐍',diff:'Beginner',dc:'diff-beginner'},
-  {name:'Dart Frog',slug:'dart-frog',emoji:'🐸',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Iguana',slug:'iguana',emoji:'🦎',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Leopard Gecko',slug:'leopard-gecko',emoji:'🦎',diff:'Beginner',dc:'diff-beginner'},
-  {name:'Panther Chameleon',slug:'panther-chameleon',emoji:'🦎',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Red-Eared Slider',slug:'red-eared-slider',emoji:'🌊',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Red-Eyed Tree Frog',slug:'red-eyed-tree-frog',emoji:'🐸',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Red-Footed Tortoise',slug:'red-footed-tortoise',emoji:'🐢',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Russian Tortoise',slug:'russian-tortoise',emoji:'🐢',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Savannah Monitor',slug:'savannah-monitor',emoji:'🦖',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Sulcata Tortoise',slug:'sulcata-tortoise',emoji:'🐢',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Tegu',slug:'tegu',emoji:'🦎',diff:'Advanced',dc:'diff-advanced'},
-  {name:'Uromastyx',slug:'uromastyx',emoji:'🦎',diff:'Moderate',dc:'diff-moderate'},
-  {name:'Veiled Chameleon',slug:'veiled-chameleon',emoji:'🦎',diff:'Advanced',dc:'diff-advanced'},
-  {name:'White Tree Frog',slug:'white-tree-frog',emoji:'🐸',diff:'Beginner',dc:'diff-beginner'},
-];
+    <main>
+      <section class="expo-hero">
+        <div class="container" style="position: relative; z-index: 1">
+          <span class="hero-badge">SIOUX FALLS · 2026</span>
+          <h1>
+            Vital Animal<br /><span class="gold">Reptile Expo Care Guide</span>
+          </h1>
+          <p class="subtitle">
+            Your complete care information hub for every animal at the 2026
+            expo.
+          </p>
+          <div class="search-widget">
+            <span class="prompt">I have a <span>...</span></span>
+            <div class="search-input-wrap">
+              <input
+                type="text"
+                id="animal-search"
+                placeholder="Type an animal (e.g. gecko, python, tortoise...)"
+                autocomplete="off"
+              />
+              <div class="search-suggestions" id="suggestions"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-const input = document.getElementById('animal-search');
-const box = document.getElementById('suggestions');
-let activeIdx = -1;
+      <section class="animals-section" id="animals">
+        <div class="container">
+          <p class="section-label">2026 Featured Animals</p>
+          <h2>All Care Sheets</h2>
+          <p style="color: #616161; margin-bottom: 2rem">
+            Select any animal for its full care sheet and downloadable PDF.
+          </p>
+          <div class="row">
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/argentine-horned-frog"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐸<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Argentine Horned Frog</span>
+                    <p>
+                      The classic "Pacman frog" — sedentary, easy to care for,
+                      and full of personality.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/argentine-horned-frog"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/ball-python"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐍<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Ball Python</span>
+                    <p>
+                      The most popular pet snake — docile, compact, and
+                      available in hundreds of morphs.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/ball-python"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/bearded-dragon"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦕<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Bearded Dragon</span>
+                    <p>
+                      Friendly, interactive, and diurnal — one of the most
+                      popular pet reptiles.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/bearded-dragon"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/blue-tongue-skink"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🔵<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Blue-Tongue Skink</span>
+                    <p>
+                      Chunky, good-natured Australian skinks with brilliant blue
+                      tongues.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/blue-tongue-skink"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/boa-constrictor"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐍<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Boa Constrictor</span>
+                    <p>
+                      A classic large constrictor — impressive, long-lived, and
+                      rewarding for experienced keepers.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/boa-constrictor"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/box-turtle"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐢<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Box Turtle</span>
+                    <p>
+                      Native North American turtles that can live 50+ years with
+                      proper care.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/box-turtle"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/chinese-water-dragon"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐉<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Chinese Water Dragon</span>
+                    <p>
+                      Vibrant green arboreal lizards that love climbing and
+                      water features.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/chinese-water-dragon"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/collared-lizard"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Collared Lizard</span>
+                    <p>
+                      Fast, colorful desert lizards — one of the few reptiles
+                      that runs on two legs.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/collared-lizard"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/corn-snake"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐍<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Corn Snake</span>
+                    <p>
+                      The ideal first snake — forgiving, active, and available
+                      in stunning color morphs.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/corn-snake"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/dart-frog"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐸<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Dart Frog</span>
+                    <p>
+                      Jewel-bright tropical frogs that live in stunning
+                      bioactive vivariums.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/dart-frog"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/iguana"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Iguana</span>
+                    <p>
+                      Iconic large herbivores requiring major space and a
+                      serious keeper's commitment.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/iguana"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/leopard-gecko"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Leopard Gecko</span>
+                    <p>
+                      Hardy, handleable, and long-lived — an excellent starter
+                      lizard for any setting.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/leopard-gecko"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/panther-chameleon"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Panther Chameleon</span>
+                    <p>
+                      Stunning color-changing masters from Madagascar —
+                      rewarding but demanding.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/panther-chameleon"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/red-eared-slider"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🌊<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Red-Eared Slider</span>
+                    <p>
+                      America's most popular aquatic turtle — requires a proper
+                      filtered aquatic setup.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/red-eared-slider"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/red-eyed-tree-frog"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐸<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Red-Eyed Tree Frog</span>
+                    <p>
+                      The iconic neon-green frog with vivid red eyes — a
+                      showstopper in any vivarium.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/red-eyed-tree-frog"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/red-footed-tortoise"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐢<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Red-Footed Tortoise</span>
+                    <p>
+                      Tropical South American tortoises with colorful markings
+                      and friendly personalities.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/red-footed-tortoise"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/russian-tortoise"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐢<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Russian Tortoise</span>
+                    <p>
+                      Hardy, personable tortoises that thrive outdoors and live
+                      40–50+ years.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/russian-tortoise"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/savannah-monitor"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦖<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Savannah Monitor</span>
+                    <p>
+                      Powerful African monitors that reward experienced keepers
+                      with years of interaction.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/savannah-monitor"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/sulcata-tortoise"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐢<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Sulcata Tortoise</span>
+                    <p>
+                      The 3rd largest tortoise species — a multigenerational
+                      commitment that can top 100 lbs.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/sulcata-tortoise"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/tegu"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Tegu</span>
+                    <p>
+                      The "dogs of the reptile world" — intelligent, trainable,
+                      and deeply rewarding.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/tegu"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/uromastyx"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-moderate">Moderate</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Uromastyx</span>
+                    <p>
+                      Desert herbivores with spiky tails that thrive in extreme
+                      heat and bone-dry conditions.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/uromastyx"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/veiled-chameleon"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🦎<span class="diff-badge diff-advanced">Advanced</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">Veiled Chameleon</span>
+                    <p>
+                      Dramatic and colorful chameleons — spectacular to keep but
+                      needing precise conditions.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/veiled-chameleon"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col s12 m6 l4" style="margin-bottom: 1.5rem">
+              <a
+                href="/white-tree-frog"
+                style="text-decoration: none; display: block; height: 100%"
+                ><div class="animal-card card z-depth-1">
+                  <div class="card-image">
+                    🐸<span class="diff-badge diff-beginner">Beginner</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title">White Tree Frog</span>
+                    <p>
+                      Chubby, personable frogs from Australia — tolerant of
+                      handling and very long-lived.
+                    </p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/white-tree-frog"
+                      ><i class="material-icons tiny">open_in_new</i> View Care
+                      Sheet</a
+                    >
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 1rem">
+            <span class="diff-badge diff-beginner" style="margin: 0 0.4rem"
+              >Beginner</span
+            >
+            <span class="diff-badge diff-moderate" style="margin: 0 0.4rem"
+              >Moderate</span
+            >
+            <span class="diff-badge diff-advanced" style="margin: 0 0.4rem"
+              >Advanced</span
+            >
+            <span
+              style="
+                color: #9e9e9e;
+                font-size: 0.78rem;
+                display: block;
+                margin-top: 0.5rem;
+              "
+              >Difficulty ratings are general guidelines — all reptiles require
+              research and commitment.</span
+            >
+          </div>
+        </div>
+      </section>
 
-function getMatches(q) {
-  if (!q.trim()) return [];
-  const ql = q.toLowerCase();
-  return ANIMALS.filter(a => a.name.toLowerCase().includes(ql));
-}
+      <section style="background: #1a1a1a; padding: 2.5rem 0">
+        <div class="container" style="text-align: center">
+          <p class="section-label" style="color: #555">CARE GUIDES</p>
+          <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 1.5rem">
+            General Care Resources
+          </h2>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              flex-wrap: wrap;
+            "
+          >
+            <a
+              href="/water-quality"
+              class="btn-large waves-effect"
+              style="
+                background: #1565c0;
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.08em;
+              "
+              >💧 Water Quality</a
+            >
+            <a
+              href="/uv-light"
+              class="btn-large waves-effect"
+              style="
+                background: #e65100;
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.08em;
+              "
+              >☀️ UV Light</a
+            >
+            <a
+              href="/hibernation"
+              class="btn-large waves-effect"
+              style="
+                background: #283593;
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.08em;
+              "
+              >❄️ Hibernation</a
+            >
+          </div>
+        </div>
+      </section>
 
-function render(matches) {
-  activeIdx = -1;
-  if (!matches.length) {
-    box.innerHTML = '<div class="no-results">No match — try "gecko", "python", or "tortoise"</div>';
-  } else {
-    box.innerHTML = matches.map((a,i) =>
-      `<a class="suggestion-item" href="/${a.slug}" data-idx="${i}">
+      <section
+        style="
+          background: linear-gradient(135deg, #0d1b2a, #1a3a4a);
+          padding: 3rem 0;
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <h2 style="color: #fff; font-size: 2rem; margin-bottom: 0.5rem">
+            Got your new animal home?
+          </h2>
+          <p style="color: #80cbc4; margin-bottom: 1.5rem">
+            Vital Animal Veterinary Clinic in Sioux Falls is our official exotic
+            vet partner.
+          </p>
+          <a
+            href="/vital-animal-vet"
+            class="btn-large download-btn waves-effect"
+          >
+            <i class="material-icons left">local_hospital</i>Meet Our Vet
+            Partner
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="expo-footer">
+      <div
+        style="
+          background: #1a2e1a;
+          border-bottom: 1px solid #2a3e2a;
+          padding: 1.25rem 0;
+          text-align: center;
+        "
+      >
+        <p style="margin: 0; font-size: 1rem; color: #c8e6c9">
+          Made with 💓 by
+          <a href="/vital-animal-vet" style="color: #f9a825; font-weight: 700"
+            >Vital Animal Veterinary Clinic</a
+          >
+          for the 2026 Reptile Expo
+        </p>
+      </div>
+      <div class="container" style="padding-top: 2rem">
+        <div class="row" style="margin-bottom: 0">
+          <div class="col s12 l3" style="margin-bottom: 1.5rem">
+            <span class="footer-logo">🏥 Vital Animal Vet Clinic</span>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: #757575;
+                line-height: 1.9;
+                margin-top: 0.5rem;
+              "
+            >
+              📍 2809 S Spring Ave<br />&nbsp;&nbsp;&nbsp;&nbsp;Sioux Falls, SD
+              57105<br />
+              📞 <a href="tel:6053399261">(605) 339-9261</a><br />
+              💬 <a href="sms:6054606094">(605) 460-6094</a><br />
+              📧
+              <a
+                href="mailto:reception@vitalanimalvetclinic.com"
+                style="font-size: 0.8rem"
+                >reception@vitalanimalvetclinic.com</a
+              ><br />
+              🌐
+              <a href="https://vitalanimalvetclinic.com" target="_blank"
+                >vitalanimalvetclinic.com</a
+              ><br />
+              🕐 Mon–Fri: 8:00am – 5:00pm
+            </p>
+            <a
+              href="https://petportal.vet/vavc/appointment/request"
+              target="_blank"
+              style="
+                display: inline-block;
+                background: #1565c0;
+                color: #fff;
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.08em;
+                padding: 6px 14px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+              "
+            >
+              Book Appointment
+            </a>
+          </div>
+          <div class="col s6 m3 l2">
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+              "
+            >
+              ANIMALS A–L
+            </p>
+            <ul class="footer-links">
+              <li>
+                <a href="/argentine-horned-frog">Argentine Horned Frog</a>
+              </li>
+              <li><a href="/ball-python">Ball Python</a></li>
+              <li><a href="/bearded-dragon">Bearded Dragon</a></li>
+              <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
+              <li><a href="/boa-constrictor">Boa Constrictor</a></li>
+              <li><a href="/box-turtle">Box Turtle</a></li>
+              <li><a href="/chinese-water-dragon">Chinese Water Dragon</a></li>
+              <li><a href="/collared-lizard">Collared Lizard</a></li>
+              <li><a href="/corn-snake">Corn Snake</a></li>
+              <li><a href="/dart-frog">Dart Frog</a></li>
+              <li><a href="/iguana">Iguana</a></li>
+              <li><a href="/leopard-gecko">Leopard Gecko</a></li>
+            </ul>
+          </div>
+          <div class="col s6 m3 l2">
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+              "
+            >
+              ANIMALS P–W
+            </p>
+            <ul class="footer-links">
+              <li><a href="/panther-chameleon">Panther Chameleon</a></li>
+              <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
+              <li><a href="/red-eyed-tree-frog">Red-Eyed Tree Frog</a></li>
+              <li><a href="/red-footed-tortoise">Red-Footed Tortoise</a></li>
+              <li><a href="/russian-tortoise">Russian Tortoise</a></li>
+              <li><a href="/savannah-monitor">Savannah Monitor</a></li>
+              <li><a href="/sulcata-tortoise">Sulcata Tortoise</a></li>
+              <li><a href="/tegu">Tegu</a></li>
+              <li><a href="/uromastyx">Uromastyx</a></li>
+              <li><a href="/veiled-chameleon">Veiled Chameleon</a></li>
+              <li><a href="/white-tree-frog">White Tree Frog</a></li>
+            </ul>
+          </div>
+          <div class="col s6 m3 l2">
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+              "
+            >
+              CARE GUIDES
+            </p>
+            <ul class="footer-links">
+              <li><a href="/water-quality">💧 Water Quality</a></li>
+              <li><a href="/uv-light">☀️ UV Light</a></li>
+              <li><a href="/hibernation">❄️ Hibernation</a></li>
+            </ul>
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin: 0.75rem 0 0.5rem;
+                font-size: 0.85rem;
+              "
+            >
+              CONNECT
+            </p>
+            <ul class="footer-links">
+              <li>
+                <a
+                  href="https://www.facebook.com/Vital-Animal-Veterinary-Clinic-100076364851885/"
+                  target="_blank"
+                  >Facebook</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/vitalanimalveterinaryclinic/"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.yelp.com/biz/vital-animal-veterinary-clinic-sioux-falls"
+                  target="_blank"
+                  >Yelp</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2026 All Animal Reptile Expo · Made with 💓 by Vital Animal
+          Veterinary Clinic · Care information is for reference only · Always
+          consult a qualified exotic vet
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      const ANIMALS = [
+        {
+          name: "Argentine Horned Frog",
+          slug: "argentine-horned-frog",
+          emoji: "🐸",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+        {
+          name: "Ball Python",
+          slug: "ball-python",
+          emoji: "🐍",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+        {
+          name: "Bearded Dragon",
+          slug: "bearded-dragon",
+          emoji: "🦕",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+        {
+          name: "Blue-Tongue Skink",
+          slug: "blue-tongue-skink",
+          emoji: "🔵",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Boa Constrictor",
+          slug: "boa-constrictor",
+          emoji: "🐍",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Box Turtle",
+          slug: "box-turtle",
+          emoji: "🐢",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Chinese Water Dragon",
+          slug: "chinese-water-dragon",
+          emoji: "🐉",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Collared Lizard",
+          slug: "collared-lizard",
+          emoji: "🦎",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Corn Snake",
+          slug: "corn-snake",
+          emoji: "🐍",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+        {
+          name: "Dart Frog",
+          slug: "dart-frog",
+          emoji: "🐸",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Iguana",
+          slug: "iguana",
+          emoji: "🦎",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Leopard Gecko",
+          slug: "leopard-gecko",
+          emoji: "🦎",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+        {
+          name: "Panther Chameleon",
+          slug: "panther-chameleon",
+          emoji: "🦎",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Red-Eared Slider",
+          slug: "red-eared-slider",
+          emoji: "🌊",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Red-Eyed Tree Frog",
+          slug: "red-eyed-tree-frog",
+          emoji: "🐸",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Red-Footed Tortoise",
+          slug: "red-footed-tortoise",
+          emoji: "🐢",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Russian Tortoise",
+          slug: "russian-tortoise",
+          emoji: "🐢",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Savannah Monitor",
+          slug: "savannah-monitor",
+          emoji: "🦖",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Sulcata Tortoise",
+          slug: "sulcata-tortoise",
+          emoji: "🐢",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Tegu",
+          slug: "tegu",
+          emoji: "🦎",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "Uromastyx",
+          slug: "uromastyx",
+          emoji: "🦎",
+          diff: "Moderate",
+          dc: "diff-moderate",
+        },
+        {
+          name: "Veiled Chameleon",
+          slug: "veiled-chameleon",
+          emoji: "🦎",
+          diff: "Advanced",
+          dc: "diff-advanced",
+        },
+        {
+          name: "White Tree Frog",
+          slug: "white-tree-frog",
+          emoji: "🐸",
+          diff: "Beginner",
+          dc: "diff-beginner",
+        },
+      ];
+
+      const input = document.getElementById("animal-search");
+      const box = document.getElementById("suggestions");
+      let activeIdx = -1;
+
+      function getMatches(q) {
+        if (!q.trim()) return [];
+        const ql = q.toLowerCase();
+        return ANIMALS.filter((a) => a.name.toLowerCase().includes(ql));
+      }
+
+      function render(matches) {
+        activeIdx = -1;
+        if (!matches.length) {
+          box.innerHTML =
+            '<div class="no-results">No match — try "gecko", "python", or "tortoise"</div>';
+        } else {
+          box.innerHTML = matches
+            .map(
+              (a, i) =>
+                `<a class="suggestion-item" href="/${a.slug}" data-idx="${i}">
         <span class="sug-emoji">${a.emoji}</span>
         <span class="sug-name">${a.name}</span>
         <span class="sug-diff ${a.dc}">${a.diff}</span>
       </a>`
-    ).join('');
-  }
-  box.classList.add('open');
-}
+            )
+            .join("");
+        }
+        box.classList.add("open");
+      }
 
-function close() { box.classList.remove('open'); activeIdx = -1; }
+      function close() {
+        box.classList.remove("open");
+        activeIdx = -1;
+      }
 
-input.addEventListener('input', () => render(getMatches(input.value)));
-input.addEventListener('focus', () => { if (input.value.trim()) render(getMatches(input.value)); });
+      input.addEventListener("input", () => render(getMatches(input.value)));
+      input.addEventListener("focus", () => {
+        if (input.value.trim()) render(getMatches(input.value));
+      });
 
-input.addEventListener('keydown', e => {
-  const items = box.querySelectorAll('.suggestion-item');
-  if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx+1, items.length-1); }
-  else if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx-1, 0); }
-  else if (e.key === 'Enter' && activeIdx >= 0) { e.preventDefault(); items[activeIdx].click(); return; }
-  else if (e.key === 'Escape') { close(); return; }
-  items.forEach((el,i) => el.classList.toggle('active', i===activeIdx));
-  if (activeIdx >= 0) items[activeIdx].scrollIntoView({block:'nearest'});
-});
+      input.addEventListener("keydown", (e) => {
+        const items = box.querySelectorAll(".suggestion-item");
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          activeIdx = Math.min(activeIdx + 1, items.length - 1);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          activeIdx = Math.max(activeIdx - 1, 0);
+        } else if (e.key === "Enter" && activeIdx >= 0) {
+          e.preventDefault();
+          items[activeIdx].click();
+          return;
+        } else if (e.key === "Escape") {
+          close();
+          return;
+        }
+        items.forEach((el, i) =>
+          el.classList.toggle("active", i === activeIdx)
+        );
+        if (activeIdx >= 0)
+          items[activeIdx].scrollIntoView({ block: "nearest" });
+      });
 
-document.addEventListener('click', e => { if (!e.target.closest('.search-input-wrap')) close(); });
-</script>
-</body>
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".search-input-wrap")) close();
+      });
+    </script>
+  </body>
 </html>
