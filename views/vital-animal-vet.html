@@ -1,563 +1,1035 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vital Animal Veterinary Clinic — Our Vet Partner | All Animal Expo 2026</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <style>
-    .vet-hero {
-      background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5a 60%, #0a2a3a 100%);
-      padding: 4.5rem 0 3.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .vet-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .vet-hero .vet-badge {
-      display: inline-block;
-      background: #1565c0;
-      color: #fff;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.15em;
-      padding: 0.2rem 1rem;
-      border-radius: 2px;
-      margin-bottom: 1rem;
-    }
-    .vet-hero h1 {
-      color: #fff;
-      font-size: clamp(2rem, 5vw, 3.8rem);
-      line-height: 1.05;
-      margin: 0.5rem 0;
-      position: relative;
-    }
-    .vet-hero .vet-tagline {
-      color: #80cbc4;
-      font-size: 1.05rem;
-      max-width: 540px;
-      margin: 0.75rem auto 2rem;
-      position: relative;
-    }
-    .vet-contact-strip {
-      background: #1565c0;
-      padding: 1rem 0;
-      text-align: center;
-    }
-    .vet-contact-strip a {
-      color: #fff !important;
-      font-weight: 700;
-      margin: 0 1rem;
-      font-size: 0.95rem;
-    }
-    .vet-section { padding: 3rem 0; }
-    .vet-section:nth-child(even) { background: #fff; }
-    .review-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-      margin-bottom: 1rem;
-      border-left: 4px solid #1565c0;
-      height: 100%;
-    }
-    .review-card .stars { color: #f9a825; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .review-card .review-text { font-size: 0.9rem; color: #424242; line-height: 1.6; margin-bottom: 0.75rem; }
-    .review-card .reviewer { font-weight: 700; font-size: 0.85rem; color: #1565c0; }
-    .service-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .service-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #e3f2fd;
-      color: #0d47a1;
-      border-radius: 6px;
-      padding: 0.6rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-    .service-item i { font-size: 1.1rem; }
-    .team-grid .team-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      margin-bottom: 1rem;
-    }
-    .team-grid .team-card h4 { margin: 0 0 0.2rem; color: #0d47a1; font-size: 1.1rem; }
-    .team-grid .team-card .role-chip {
-      display: inline-block;
-      background: #1565c0;
-      color: #fff;
-      border-radius: 20px;
-      padding: 2px 10px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
-    }
-    .team-grid .team-card p { font-size: 0.85rem; color: #616161; line-height: 1.5; margin: 0; }
-    .pets-section { background: linear-gradient(135deg, #e8f5e9, #e3f2fd); padding: 3rem 0; }
-    .pet-chip {
-      display: inline-block;
-      background: #fff;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin: 0.5rem;
-      font-weight: 700;
-      color: #2e7d32;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      font-size: 1.1rem;
-    }
-  </style>
-</head>
-<body>
-
-<!-- Sidenav (mobile) -->
-<ul class="sidenav" id="mobile-nav">
-  <li><div class="user-view" style="background:#1a1a1a;padding:1rem;">
-    <span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#f9a825;letter-spacing:0.1em;">🦎 All Animal Expo 2026</span>
-  </div></li>
-  <li><a href="/">Home</a></li>
-  <li><div class="divider" style="background:#333"></div></li>
-  <li><a class="subheader" style="color:#9e9e9e;font-size:0.75rem;letter-spacing:0.1em;">ANIMALS</a></li>
-  <li><a href="/tegu-lizard">Tegu Lizard</a></li>
-  <li><a href="/savannah-monitor">Savannah Monitor</a></li>
-  <li><a href="/russian-tortoise">Russian Tortoise</a></li>
-  <li><a href="/ball-python">Ball Python</a></li>
-  <li><a href="/bearded-dragon">Bearded Dragon</a></li>
-  <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
-  <li><a href="/crested-gecko">Crested Gecko</a></li>
-  <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
-  <li><div class="divider" style="background:#333"></div></li>
-  <li><a href="/vital-animal-vet" style="color:#f9a825;">🏥 Our Vet Partner</a></li>
-</ul>
-
-<nav class="expo-nav">
-  <div class="nav-wrapper container">
-    <a href="/" class="brand-logo">🦎 <span class="accent">All Animal</span> Expo <span style="color:#f9a825">2026</span></a>
-    <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Vital Animal Veterinary Clinic — Our Vet Partner | Vital Animal Expo 2026
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .vet-hero {
+        background: linear-gradient(
+          135deg,
+          #0d1b2a 0%,
+          #1a3a5a 60%,
+          #0a2a3a 100%
+        );
+        padding: 4.5rem 0 3.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .vet-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      .vet-hero .vet-badge {
+        display: inline-block;
+        background: #1565c0;
+        color: #fff;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.15em;
+        padding: 0.2rem 1rem;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+      }
+      .vet-hero h1 {
+        color: #fff;
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        line-height: 1.05;
+        margin: 0.5rem 0;
+        position: relative;
+      }
+      .vet-hero .vet-tagline {
+        color: #80cbc4;
+        font-size: 1.05rem;
+        max-width: 540px;
+        margin: 0.75rem auto 2rem;
+        position: relative;
+      }
+      .vet-contact-strip {
+        background: #1565c0;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      .vet-contact-strip a {
+        color: #fff !important;
+        font-weight: 700;
+        margin: 0 1rem;
+        font-size: 0.95rem;
+      }
+      .vet-section {
+        padding: 3rem 0;
+      }
+      .vet-section:nth-child(even) {
+        background: #fff;
+      }
+      .review-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        margin-bottom: 1rem;
+        border-left: 4px solid #1565c0;
+        height: 100%;
+      }
+      .review-card .stars {
+        color: #f9a825;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .review-card .review-text {
+        font-size: 0.9rem;
+        color: #424242;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+      .review-card .reviewer {
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: #1565c0;
+      }
+      .service-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .service-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #e3f2fd;
+        color: #0d47a1;
+        border-radius: 6px;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+      .service-item i {
+        font-size: 1.1rem;
+      }
+      .team-grid .team-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+        margin-bottom: 1rem;
+      }
+      .team-grid .team-card h4 {
+        margin: 0 0 0.2rem;
+        color: #0d47a1;
+        font-size: 1.1rem;
+      }
+      .team-grid .team-card .role-chip {
+        display: inline-block;
+        background: #1565c0;
+        color: #fff;
+        border-radius: 20px;
+        padding: 2px 10px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+      }
+      .team-grid .team-card p {
+        font-size: 0.85rem;
+        color: #616161;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .pets-section {
+        background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+        padding: 3rem 0;
+      }
+      .pet-chip {
+        display: inline-block;
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        margin: 0.5rem;
+        font-weight: 700;
+        color: #2e7d32;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidenav (mobile) -->
+    <ul class="sidenav" id="mobile-nav">
+      <li>
+        <div class="user-view" style="background: #1a1a1a; padding: 1rem">
+          <span
+            style="
+              font-family: 'Bebas Neue', sans-serif;
+              font-size: 1.3rem;
+              color: #f9a825;
+              letter-spacing: 0.1em;
+            "
+            >🦎 Vital Animal Expo 2026</span
+          >
+        </div>
+      </li>
       <li><a href="/">Home</a></li>
-      <li><a href="/tegu-lizard">Tegus</a></li>
-      <li><a href="/savannah-monitor">Monitors</a></li>
-      <li><a href="/russian-tortoise">Tortoises</a></li>
-      <li><a href="/ball-python">Pythons</a></li>
-      <li><a href="/bearded-dragon">Beardies</a></li>
-      <li><a href="/vital-animal-vet" style="color:#f9a825!important">🏥 Vet Partner</a></li>
+      <li><div class="divider" style="background: #333"></div></li>
+      <li>
+        <a
+          class="subheader"
+          style="color: #9e9e9e; font-size: 0.75rem; letter-spacing: 0.1em"
+          >ANIMALS</a
+        >
+      </li>
+      <li><a href="/tegu-lizard">Tegu Lizard</a></li>
+      <li><a href="/savannah-monitor">Savannah Monitor</a></li>
+      <li><a href="/russian-tortoise">Russian Tortoise</a></li>
+      <li><a href="/ball-python">Ball Python</a></li>
+      <li><a href="/bearded-dragon">Bearded Dragon</a></li>
+      <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
+      <li><a href="/crested-gecko">Crested Gecko</a></li>
+      <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
+      <li><div class="divider" style="background: #333"></div></li>
+      <li>
+        <a href="/vital-animal-vet" style="color: #f9a825"
+          >🏥 Our Vet Partner</a
+        >
+      </li>
     </ul>
-  </div>
-</nav>
 
-<main>
-  <!-- Breadcrumb -->
-  <div class="expo-breadcrumb">
-    <div class="container">
-      <a href="/" class="breadcrumb">Home</a>
-      <span class="breadcrumb">Vital Animal Veterinary Clinic</span>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <div class="vet-hero">
-    <div class="container" style="position:relative;z-index:1;">
-      <span class="vet-badge">OFFICIAL VET PARTNER · SIOUX FALLS, SD</span>
-      <h1>🏥 Vital Animal<br>Veterinary Clinic</h1>
-      <p class="vet-tagline">Sioux Falls' premier choice for exotic, reptile, and pocket pet care. Holistic + traditional medicine under one roof.</p>
-      <a href="tel:6053399261" class="btn-large waves-effect" style="background:#1565c0;margin-right:1rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;font-size:1.1rem;">
-        <i class="material-icons left">phone</i>Call (605) 339-9261
-      </a>
-      <a href="https://petportal.vet/vavc/appointment/request" target="_blank" class="btn-large waves-effect" style="background:#f9a825;color:#1a1a1a;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;font-size:1.1rem;">
-        <i class="material-icons left">event</i>Book Appointment
-      </a>
-    </div>
-  </div>
-
-  <!-- Contact Strip -->
-  <div class="vet-contact-strip">
-    <a href="tel:6053399261"><i class="material-icons tiny">phone</i> (605) 339-9261</a>
-    <a href="sms:6054606094"><i class="material-icons tiny">sms</i> Text: (605) 460-6094</a>
-    <a href="mailto:reception@vitalanimalvetclinic.com"><i class="material-icons tiny">email</i> reception@vitalanimalvetclinic.com</a>
-    <a href="https://vitalanimalvetclinic.com" target="_blank"><i class="material-icons tiny">language</i> vitalanimalvetclinic.com</a>
-  </div>
-
-  <!-- Hours + Map -->
-  <section class="vet-section">
-    <div class="container">
-      <div class="row">
-
-        <!-- Info Column -->
-        <div class="col s12 l5">
-          <p class="section-label">Location & Hours</p>
-          <h2 style="font-size:2rem;color:#0d47a1;margin-bottom:1.5rem;">Visit Us</h2>
-
-          <div class="vet-info-card">
-            <h3><i class="material-icons tiny" style="color:#1565c0;vertical-align:middle;">location_on</i> Address</h3>
-            <p style="font-size:1rem;color:#424242;line-height:1.6;">
-              <strong>Vital Animal Veterinary Clinic</strong><br>
-              2809 S Spring Ave<br>
-              Sioux Falls, SD 57105
-            </p>
-            <a href="https://maps.google.com/?q=2809+S+Spring+Ave+Sioux+Falls+SD" target="_blank" class="btn waves-effect" style="background:#1565c0;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;margin-top:0.5rem;">
-              <i class="material-icons left">directions</i>Get Directions
-            </a>
-          </div>
-
-          <div class="vet-info-card">
-            <h3><i class="material-icons tiny" style="color:#1565c0;vertical-align:middle;">schedule</i> Hours</h3>
-            <div class="hours-row"><span class="day">Monday</span><span class="time">8:00 AM – 5:00 PM</span></div>
-            <div class="hours-row"><span class="day">Tuesday</span><span class="time">8:00 AM – 5:00 PM</span></div>
-            <div class="hours-row"><span class="day">Wednesday</span><span class="time">8:00 AM – 5:00 PM</span></div>
-            <div class="hours-row"><span class="day">Thursday</span><span class="time">8:00 AM – 5:00 PM</span></div>
-            <div class="hours-row"><span class="day">Friday</span><span class="time">8:00 AM – 5:00 PM</span></div>
-            <div class="hours-row"><span class="day">Saturday</span><span class="time" style="color:#e53935;">Closed</span></div>
-            <div class="hours-row"><span class="day">Sunday</span><span class="time" style="color:#e53935;">Closed</span></div>
-          </div>
-
-          <div class="vet-info-card">
-            <h3><i class="material-icons tiny" style="color:#1565c0;vertical-align:middle;">pets</i> Animals We Treat</h3>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
-              <span class="service-chip">🐱 Cats</span>
-              <span class="service-chip">🐶 Dogs</span>
-              <span class="service-chip">🦎 Reptiles</span>
-              <span class="service-chip">🐸 Amphibians</span>
-              <span class="service-chip">🐰 Rabbits</span>
-              <span class="service-chip">🐹 Guinea Pigs</span>
-              <span class="service-chip">🐭 Hamsters</span>
-              <span class="service-chip">🦔 Hedgehogs</span>
-              <span class="service-chip">🦎 Iguanas</span>
-              <span class="service-chip">🐍 Snakes</span>
-              <span class="service-chip">🐢 Tortoises</span>
-              <span class="service-chip">🦎 Geckos</span>
-            </div>
-            <p style="font-size:0.8rem;color:#9e9e9e;margin-top:0.75rem;">⚠️ Note: Birds are not currently seen at this clinic.</p>
-          </div>
-        </div>
-
-        <!-- Map Column -->
-        <div class="col s12 l7">
-          <div class="map-embed" style="margin-top:2.5rem;">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.5!2d-96.7352!3d43.5238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x878eb1e1e1e1e1e1%3A0x1234567890abcdef!2s2809+S+Spring+Ave%2C+Sioux+Falls%2C+SD+57105!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="100%"
-              height="380"
-              style="border:0;border-radius:8px;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Vital Animal Veterinary Clinic Location">
-            </iframe>
-          </div>
-
-          <!-- Quick Links -->
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.25rem;">
-            <a href="https://petportal.vet/vavc/appointment/request" target="_blank" class="btn waves-effect" style="background:#1565c0;flex:1;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;">
-              <i class="material-icons left">event</i>Book Online
-            </a>
-            <a href="https://petportal.vet/vavc" target="_blank" class="btn waves-effect" style="background:#2e7d32;flex:1;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;">
-              <i class="material-icons left">account_circle</i>Pet Portal
-            </a>
-            <a href="https://vitalanimalveterinaryclinic.securevetsource.com" target="_blank" class="btn waves-effect" style="background:#6a1b9a;flex:1;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;">
-              <i class="material-icons left">local_pharmacy</i>Online Pharmacy
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="vet-section" style="background:#f9fafe;">
-    <div class="container">
-      <p class="section-label">What We Offer</p>
-      <h2 style="font-size:2rem;color:#0d47a1;margin-bottom:0.5rem;">Holistic & Traditional Services</h2>
-      <p style="color:#616161;margin-bottom:2rem;">Vital Animal blends conventional veterinary medicine with integrative, holistic therapies for whole-animal wellness.</p>
-
-      <div class="service-grid" style="margin-bottom:2rem;">
-        <div class="service-item"><i class="material-icons">event_available</i>Day Admission</div>
-        <div class="service-item"><i class="material-icons">location_on</i>Microchipping</div>
-        <div class="service-item"><i class="material-icons">content_cut</i>Nail Trim</div>
-        <div class="service-item"><i class="material-icons">health_and_safety</i>Anal Gland Expression</div>
-        <div class="service-item"><i class="material-icons">flash_on</i>Laser Therapy</div>
-        <div class="service-item"><i class="material-icons">spa</i>Acupuncture</div>
-        <div class="service-item"><i class="material-icons">radio</i>Radiograph (X-Ray)</div>
-        <div class="service-item"><i class="material-icons">biotech</i>Blood Work / Diagnostics</div>
-        <div class="service-item"><i class="material-icons">favorite</i>End-of-Life Care</div>
-        <div class="service-item"><i class="material-icons">medication</i>Prescription Refills</div>
-        <div class="service-item"><i class="material-icons">vaccines</i>Vaccines & Wellness</div>
-        <div class="service-item"><i class="material-icons">pets</i>Exotic Animal Exams</div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="vet-info-card" style="border-left:4px solid #1565c0;">
-            <h3 style="color:#1565c0;"><i class="material-icons tiny" style="color:#1565c0;">star</i> Why Reptile Owners Choose Vital Animal</h3>
-            <ul style="padding-left:1.25rem;">
-              <li style="margin-bottom:0.5rem;">Actual exotic/reptile experience — not just "we'll try"</li>
-              <li style="margin-bottom:0.5rem;">Dr. Lisa Coder has personal experience with reptiles (she has a gecko!)</li>
-              <li style="margin-bottom:0.5rem;">Staff Abby discovered her passion for exotics at All Animal Pet Hospital</li>
-              <li style="margin-bottom:0.5rem;">Same-day appointments frequently available</li>
-              <li style="margin-bottom:0.5rem;">Fair, transparent pricing</li>
-              <li>Integrative approach — laser therapy available for many conditions</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col s12 m6">
-          <div class="vet-info-card" style="border-left:4px solid #2e7d32;">
-            <h3 style="color:#2e7d32;"><i class="material-icons tiny" style="color:#2e7d32;">phone</i> Contact Options</h3>
-            <div class="hours-row">
-              <span class="day">📞 Call</span>
-              <span class="time"><a href="tel:6053399261">(605) 339-9261</a></span>
-            </div>
-            <div class="hours-row">
-              <span class="day">💬 Text</span>
-              <span class="time"><a href="sms:6054606094">(605) 460-6094</a></span>
-            </div>
-            <div class="hours-row">
-              <span class="day">📧 Email</span>
-              <span class="time"><a href="mailto:reception@vitalanimalvetclinic.com" style="font-size:0.8rem;">reception@vitalanimalvetclinic.com</a></span>
-            </div>
-            <div class="hours-row">
-              <span class="day">🖥️ Portal</span>
-              <span class="time"><a href="https://petportal.vet/vavc" target="_blank">petportal.vet/vavc</a></span>
-            </div>
-            <div style="margin-top:1rem;">
-              <a href="https://www.facebook.com/Vital-Animal-Veterinary-Clinic-100076364851885/" target="_blank" class="btn-small waves-effect" style="background:#1877f2;margin:0.2rem;">Facebook</a>
-              <a href="https://www.instagram.com/vitalanimalveterinaryclinic/" target="_blank" class="btn-small waves-effect" style="background:#e1306c;margin:0.2rem;">Instagram</a>
-              <a href="https://www.yelp.com/biz/vital-animal-veterinary-clinic-sioux-falls" target="_blank" class="btn-small waves-effect" style="background:#d32323;margin:0.2rem;">Yelp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Meet Dr. Lisa + Team -->
-  <section class="vet-section">
-    <div class="container">
-      <p class="section-label">The Team</p>
-      <h2 style="font-size:2rem;color:#0d47a1;margin-bottom:1.5rem;">Meet the Family</h2>
-
-      <!-- Dr. Lisa feature -->
-      <div class="vet-info-card" style="border-left:4px solid #f9a825;background:linear-gradient(135deg,#fefefe,#f0f4ff);margin-bottom:2rem;">
-        <div class="row" style="margin-bottom:0;">
-          <div class="col s12 m2" style="text-align:center;padding-top:0.5rem;">
-            <span style="font-size:4rem;">👩‍⚕️</span>
-          </div>
-          <div class="col s12 m10">
-            <h3 style="color:#0d47a1;margin:0 0 0.25rem;">Dr. Lisa Coder, DVM</h3>
-            <span style="display:inline-block;background:#f9a825;color:#1a1a1a;border-radius:20px;padding:2px 12px;font-size:0.75rem;font-weight:700;margin-bottom:0.75rem;">Lead Veterinarian</span>
-            <p style="font-size:0.9rem;color:#424242;line-height:1.6;margin:0;">
-              Dr. Lisa graduated from the University of Missouri in 2013, bringing experience across equine, mixed animal, emergency, and USDA public health veterinary medicine. In 2021 she founded Home Vet — a holistic practice offering acupuncture, laser therapy, and herbal medicine. In 2023 that expanded into Vital Animal Veterinary Clinic. She has two children, four cats, and a gecko she describes as "the love of her life." Her approach: care, heal, thrive.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team grid -->
-      <div class="row team-grid">
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">🩺</span>
-            <h4>Abby</h4>
-            <span class="role-chip">Registered Veterinary Technician</span>
-            <p>Graduated from Globe University in 2013 in Veterinary Technology. Began at All Animal Pet Hospital in 2015 where she discovered a deep passion for exotic animal medicine. Has 3 cats and a dog. Loves fishing and crafts.</p>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">🩺</span>
-            <h4>Amanda</h4>
-            <span class="role-chip">Office Manager & RVT</span>
-            <p>Nearly 10 years in veterinary medicine, including ER/ICU experience. Globe University grad, passed VTNE in 2013. Her favorite part: "Getting to work with all the exotic animals that come here. Every day is something different."</p>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">👩‍⚕️</span>
-            <h4>Lee</h4>
-            <span class="role-chip">Veterinary Assistant</span>
-            <p>Started at All Animal Pet Hospital in 2019. Has a tortoise named Little Foot, 2 dogs, and a cat. Passionate about animals despite her background in business administration.</p>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">👨‍⚕️</span>
-            <h4>Arik</h4>
-            <span class="role-chip">Veterinary Assistant</span>
-            <p>Originally from Colorado, served in the military in South Carolina before moving to South Dakota. Passionate animal lover known for nerding out on topics — and excellent dad jokes.</p>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">👩‍💼</span>
-            <h4>Kisha</h4>
-            <span class="role-chip">Receptionist & Tech in Training</span>
-            <p>14 years as a cosmetologist, 7 as a Correctional Officer — now pursuing her passion for animals and training to become a Vet Tech. Has 5 dachshunds.</p>
-          </div>
-        </div>
-        <div class="col s12 m6 l4">
-          <div class="team-card">
-            <span style="font-size:2.5rem;">👩‍💼</span>
-            <h4>Jennifer</h4>
-            <span class="role-chip">Receptionist</span>
-            <p>Grew up south of Sioux Falls working with dogs, including 4-H county fair dog projects. Competes in dog sports with her Belgian Malinois, Roman. Loves traveling and DIY projects.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="vet-section" style="background:#f0f4ff;">
-    <div class="container">
-      <p class="section-label">What Clients Say</p>
-      <h2 style="font-size:2rem;color:#0d47a1;margin-bottom:2rem;">Why Others Trust Vital Animal</h2>
-      <div class="row">
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"I am a keeper of many exotic critters... At this vet, they got to know everything they could about my animal and provided the best treatment possible. I am beyond appreciative of how in depth they are."</p>
-            <span class="reviewer">— Blake (exotic animal keeper)</span>
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Got my pet in the same morning I called with no waiting. The staff are very helpful and caring. Prices are very reasonable and Dr Lisa ROCKS!! Won't go anywhere else!!"</p>
-            <span class="reviewer">— Tonya Scheinost Petersen</span>
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"They do acupuncture and laser therapy. Staff stayed until nearly 6pm working on our cat even though they closed at 5. The cost was a fraction compared to Omaha."</p>
-            <span class="reviewer">— Alexandra Taft</span>
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"We called a lot of places trying to get someone willing to look at our Guinea Pig. They were the only ones who took the time to listen... Had we known about Vital earlier, we may have had a different outcome."</p>
-            <span class="reviewer">— Jodi Poelstra</span>
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Our 90-pound pit bull was often turned away from nail trims or told he needed full anesthesia. Vital Animal had no problem getting it done in 10 minutes. Truly the best veterinary clinic in Sioux Falls."</p>
-            <span class="reviewer">— Erin Markey</span>
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p class="review-text">"Dr. Lisa did not sugar coat anything. She was straight forward with me on everything... I couldn't imagine taking our sweet Elsa anywhere else to lay her to rest."</p>
-            <span class="reviewer">— McKenzie Vigna</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Animals they see (exotic focus) -->
-  <div class="pets-section">
-    <div class="container" style="text-align:center;">
-      <p class="section-label">Exotic-Friendly</p>
-      <h2 style="font-size:2rem;color:#2e7d32;margin-bottom:1rem;">They've Seen It All</h2>
-      <p style="color:#424242;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;">From iguanas to bunnies, snakes to dogs — Vital Animal sees most pet types. Their team's exotic experience sets them apart from typical Sioux Falls vets.</p>
-      <div>
-        <span class="pet-chip">🦎 Iguanas</span>
-        <span class="pet-chip">🐍 Snakes</span>
-        <span class="pet-chip">🐢 Tortoises</span>
-        <span class="pet-chip">🦎 Geckos</span>
-        <span class="pet-chip">🦎 Monitor Lizards</span>
-        <span class="pet-chip">🐸 Frogs</span>
-        <span class="pet-chip">🐰 Rabbits</span>
-        <span class="pet-chip">🐹 Guinea Pigs</span>
-        <span class="pet-chip">🦔 Hedgehogs</span>
-        <span class="pet-chip">🐭 Rats & Mice</span>
-        <span class="pet-chip">🐶 Dogs</span>
-        <span class="pet-chip">🐱 Cats</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);padding:3rem 0;text-align:center;">
-    <div class="container">
-      <h2 style="color:#fff;font-size:2rem;margin-bottom:0.5rem;">Just brought home a new reptile?</h2>
-      <p style="color:#90caf9;margin-bottom:1.5rem;">Schedule a new animal wellness exam within the first 2 weeks. Vital Animal's team will get your new pet off to a healthy start.</p>
-      <a href="tel:6053399261" class="btn-large waves-effect" style="background:#f9a825;color:#1a1a1a;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;margin-right:1rem;font-size:1.1rem;">
-        <i class="material-icons left">phone</i>Call Now
-      </a>
-      <a href="https://petportal.vet/vavc/appointment/request" target="_blank" class="btn-large waves-effect" style="background:transparent;color:#fff;border:2px solid #fff;font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;font-size:1.1rem;line-height:52px;">
-        Book Online
-      </a>
-    </div>
-  </div>
-
-  <!-- Back nav -->
-  <div style="background:#1a1a1a;padding:1.5rem 0;text-align:center;">
-    <a href="/" class="btn waves-effect" style="background:#2e7d32;font-family:'Bebas Neue',sans-serif;letter-spacing:0.08em;">
-      <i class="material-icons left">arrow_back</i>Back to All Animals
-    </a>
-  </div>
-</main>
-
-<!-- Footer -->
-<footer class="expo-footer">
-  <div class="container">
-    <div class="row" style="margin-bottom:0;">
-      <div class="col s12 m4">
-        <span class="footer-logo">🦎 All Animal Expo 2026</span>
-        <p style="font-size:0.85rem;color:#757575;line-height:1.6;">Your care information hub for the 2026 All Animal Reptile Expo in Sioux Falls, SD.</p>
-      </div>
-      <div class="col s12 m4">
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:#9e9e9e;margin-bottom:0.5rem;">Animals</p>
-        <ul class="footer-links">
-          <li><a href="/tegu-lizard">Tegu Lizard</a></li>
-          <li><a href="/savannah-monitor">Savannah Monitor</a></li>
-          <li><a href="/russian-tortoise">Russian Tortoise</a></li>
-          <li><a href="/ball-python">Ball Python</a></li>
-          <li><a href="/bearded-dragon">Bearded Dragon</a></li>
-          <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
-          <li><a href="/crested-gecko">Crested Gecko</a></li>
-          <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
+    <nav class="expo-nav">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo"
+          >🦎 <span class="accent">Vital Animal</span> Expo
+          <span style="color: #f9a825">2026</span></a
+        >
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/tegu-lizard">Tegus</a></li>
+          <li><a href="/savannah-monitor">Monitors</a></li>
+          <li><a href="/russian-tortoise">Tortoises</a></li>
+          <li><a href="/ball-python">Pythons</a></li>
+          <li><a href="/bearded-dragon">Beardies</a></li>
+          <li>
+            <a href="/vital-animal-vet" style="color: #f9a825 !important"
+              >🏥 Vet Partner</a
+            >
+          </li>
         </ul>
       </div>
-      <div class="col s12 m4">
-        <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:#9e9e9e;margin-bottom:0.5rem;">Vital Animal Vet Clinic</p>
-        <p style="font-size:0.85rem;color:#757575;line-height:1.6;">
-          2809 S Spring Ave, Sioux Falls SD 57105<br>
-          📞 <a href="tel:6053399261">(605) 339-9261</a><br>
-          💬 <a href="sms:6054606094">(605) 460-6094</a><br>
-          Mon–Fri: 8:00am – 5:00pm
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 All Animal Reptile Expo · Care information is for reference only · Always consult a qualified exotic vet
-    </div>
-  </div>
-</footer>
+    </nav>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/js/main.js"></script>
-</body>
+    <main>
+      <!-- Breadcrumb -->
+      <div class="expo-breadcrumb">
+        <div class="container">
+          <a href="/" class="breadcrumb">Home</a>
+          <span class="breadcrumb">Vital Animal Veterinary Clinic</span>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <div class="vet-hero">
+        <div class="container" style="position: relative; z-index: 1">
+          <span class="vet-badge">OFFICIAL VET PARTNER · SIOUX FALLS, SD</span>
+          <h1>🏥 Vital Animal<br />Veterinary Clinic</h1>
+          <p class="vet-tagline">
+            Sioux Falls' premier choice for exotic, reptile, and pocket pet
+            care. Holistic + traditional medicine under one roof.
+          </p>
+          <a
+            href="tel:6053399261"
+            class="btn-large waves-effect"
+            style="
+              background: #1565c0;
+              margin-right: 1rem;
+              font-family: 'Bebas Neue', sans-serif;
+              letter-spacing: 0.1em;
+              font-size: 1.1rem;
+            "
+          >
+            <i class="material-icons left">phone</i>Call (605) 339-9261
+          </a>
+          <a
+            href="https://petportal.vet/vavc/appointment/request"
+            target="_blank"
+            class="btn-large waves-effect"
+            style="
+              background: #f9a825;
+              color: #1a1a1a;
+              font-family: 'Bebas Neue', sans-serif;
+              letter-spacing: 0.1em;
+              font-size: 1.1rem;
+            "
+          >
+            <i class="material-icons left">event</i>Book Appointment
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Strip -->
+      <div class="vet-contact-strip">
+        <a href="tel:6053399261"
+          ><i class="material-icons tiny">phone</i> (605) 339-9261</a
+        >
+        <a href="sms:6054606094"
+          ><i class="material-icons tiny">sms</i> Text: (605) 460-6094</a
+        >
+        <a href="mailto:reception@vitalanimalvetclinic.com"
+          ><i class="material-icons tiny">email</i>
+          reception@vitalanimalvetclinic.com</a
+        >
+        <a href="https://vitalanimalvetclinic.com" target="_blank"
+          ><i class="material-icons tiny">language</i>
+          vitalanimalvetclinic.com</a
+        >
+      </div>
+
+      <!-- Hours + Map -->
+      <section class="vet-section">
+        <div class="container">
+          <div class="row">
+            <!-- Info Column -->
+            <div class="col s12 l5">
+              <p class="section-label">Location & Hours</p>
+              <h2
+                style="font-size: 2rem; color: #0d47a1; margin-bottom: 1.5rem"
+              >
+                Visit Us
+              </h2>
+
+              <div class="vet-info-card">
+                <h3>
+                  <i
+                    class="material-icons tiny"
+                    style="color: #1565c0; vertical-align: middle"
+                    >location_on</i
+                  >
+                  Address
+                </h3>
+                <p style="font-size: 1rem; color: #424242; line-height: 1.6">
+                  <strong>Vital Animal Veterinary Clinic</strong><br />
+                  2809 S Spring Ave<br />
+                  Sioux Falls, SD 57105
+                </p>
+                <a
+                  href="https://maps.google.com/?q=2809+S+Spring+Ave+Sioux+Falls+SD"
+                  target="_blank"
+                  class="btn waves-effect"
+                  style="
+                    background: #1565c0;
+                    font-family: 'Bebas Neue', sans-serif;
+                    letter-spacing: 0.08em;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <i class="material-icons left">directions</i>Get Directions
+                </a>
+              </div>
+
+              <div class="vet-info-card">
+                <h3>
+                  <i
+                    class="material-icons tiny"
+                    style="color: #1565c0; vertical-align: middle"
+                    >schedule</i
+                  >
+                  Hours
+                </h3>
+                <div class="hours-row">
+                  <span class="day">Monday</span
+                  ><span class="time">8:00 AM – 5:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Tuesday</span
+                  ><span class="time">8:00 AM – 5:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Wednesday</span
+                  ><span class="time">8:00 AM – 5:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Thursday</span
+                  ><span class="time">8:00 AM – 5:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Friday</span
+                  ><span class="time">8:00 AM – 5:00 PM</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Saturday</span
+                  ><span class="time" style="color: #e53935">Closed</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Sunday</span
+                  ><span class="time" style="color: #e53935">Closed</span>
+                </div>
+              </div>
+
+              <div class="vet-info-card">
+                <h3>
+                  <i
+                    class="material-icons tiny"
+                    style="color: #1565c0; vertical-align: middle"
+                    >pets</i
+                  >
+                  Animals We Treat
+                </h3>
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    margin-top: 0.5rem;
+                  "
+                >
+                  <span class="service-chip">🐱 Cats</span>
+                  <span class="service-chip">🐶 Dogs</span>
+                  <span class="service-chip">🦎 Reptiles</span>
+                  <span class="service-chip">🐸 Amphibians</span>
+                  <span class="service-chip">🐰 Rabbits</span>
+                  <span class="service-chip">🐹 Guinea Pigs</span>
+                  <span class="service-chip">🐭 Hamsters</span>
+                  <span class="service-chip">🦔 Hedgehogs</span>
+                  <span class="service-chip">🦎 Iguanas</span>
+                  <span class="service-chip">🐍 Snakes</span>
+                  <span class="service-chip">🐢 Tortoises</span>
+                  <span class="service-chip">🦎 Geckos</span>
+                </div>
+                <p
+                  style="font-size: 0.8rem; color: #9e9e9e; margin-top: 0.75rem"
+                >
+                  ⚠️ Note: Birds are not currently seen at this clinic.
+                </p>
+              </div>
+            </div>
+
+            <!-- Map Column -->
+            <div class="col s12 l7">
+              <div class="map-embed" style="margin-top: 2.5rem">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.5!2d-96.7352!3d43.5238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x878eb1e1e1e1e1e1%3A0x1234567890abcdef!2s2809+S+Spring+Ave%2C+Sioux+Falls%2C+SD+57105!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="380"
+                  style="border: 0; border-radius: 8px"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Vital Animal Veterinary Clinic Location"
+                >
+                </iframe>
+              </div>
+
+              <!-- Quick Links -->
+              <div
+                style="
+                  display: flex;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+                  margin-top: 1.25rem;
+                "
+              >
+                <a
+                  href="https://petportal.vet/vavc/appointment/request"
+                  target="_blank"
+                  class="btn waves-effect"
+                  style="
+                    background: #1565c0;
+                    flex: 1;
+                    font-family: 'Bebas Neue', sans-serif;
+                    letter-spacing: 0.08em;
+                  "
+                >
+                  <i class="material-icons left">event</i>Book Online
+                </a>
+                <a
+                  href="https://petportal.vet/vavc"
+                  target="_blank"
+                  class="btn waves-effect"
+                  style="
+                    background: #2e7d32;
+                    flex: 1;
+                    font-family: 'Bebas Neue', sans-serif;
+                    letter-spacing: 0.08em;
+                  "
+                >
+                  <i class="material-icons left">account_circle</i>Pet Portal
+                </a>
+                <a
+                  href="https://vitalanimalveterinaryclinic.securevetsource.com"
+                  target="_blank"
+                  class="btn waves-effect"
+                  style="
+                    background: #6a1b9a;
+                    flex: 1;
+                    font-family: 'Bebas Neue', sans-serif;
+                    letter-spacing: 0.08em;
+                  "
+                >
+                  <i class="material-icons left">local_pharmacy</i>Online
+                  Pharmacy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="vet-section" style="background: #f9fafe">
+        <div class="container">
+          <p class="section-label">What We Offer</p>
+          <h2 style="font-size: 2rem; color: #0d47a1; margin-bottom: 0.5rem">
+            Holistic & Traditional Services
+          </h2>
+          <p style="color: #616161; margin-bottom: 2rem">
+            Vital Animal blends conventional veterinary medicine with
+            integrative, holistic therapies for whole-animal wellness.
+          </p>
+
+          <div class="service-grid" style="margin-bottom: 2rem">
+            <div class="service-item">
+              <i class="material-icons">event_available</i>Day Admission
+            </div>
+            <div class="service-item">
+              <i class="material-icons">location_on</i>Microchipping
+            </div>
+            <div class="service-item">
+              <i class="material-icons">content_cut</i>Nail Trim
+            </div>
+            <div class="service-item">
+              <i class="material-icons">health_and_safety</i>Anal Gland
+              Expression
+            </div>
+            <div class="service-item">
+              <i class="material-icons">flash_on</i>Laser Therapy
+            </div>
+            <div class="service-item">
+              <i class="material-icons">spa</i>Acupuncture
+            </div>
+            <div class="service-item">
+              <i class="material-icons">radio</i>Radiograph (X-Ray)
+            </div>
+            <div class="service-item">
+              <i class="material-icons">biotech</i>Blood Work / Diagnostics
+            </div>
+            <div class="service-item">
+              <i class="material-icons">favorite</i>End-of-Life Care
+            </div>
+            <div class="service-item">
+              <i class="material-icons">medication</i>Prescription Refills
+            </div>
+            <div class="service-item">
+              <i class="material-icons">vaccines</i>Vaccines & Wellness
+            </div>
+            <div class="service-item">
+              <i class="material-icons">pets</i>Exotic Animal Exams
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="vet-info-card" style="border-left: 4px solid #1565c0">
+                <h3 style="color: #1565c0">
+                  <i class="material-icons tiny" style="color: #1565c0">star</i>
+                  Why Reptile Owners Choose Vital Animal
+                </h3>
+                <ul style="padding-left: 1.25rem">
+                  <li style="margin-bottom: 0.5rem">
+                    Actual exotic/reptile experience — not just "we'll try"
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Dr. Lisa Coder has personal experience with reptiles (she
+                    has a gecko!)
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Staff Abby discovered her passion for exotics at Vital
+                    Animal Pet Hospital
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Same-day appointments frequently available
+                  </li>
+                  <li style="margin-bottom: 0.5rem">
+                    Fair, transparent pricing
+                  </li>
+                  <li>
+                    Integrative approach — laser therapy available for many
+                    conditions
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="vet-info-card" style="border-left: 4px solid #2e7d32">
+                <h3 style="color: #2e7d32">
+                  <i class="material-icons tiny" style="color: #2e7d32"
+                    >phone</i
+                  >
+                  Contact Options
+                </h3>
+                <div class="hours-row">
+                  <span class="day">📞 Call</span>
+                  <span class="time"
+                    ><a href="tel:6053399261">(605) 339-9261</a></span
+                  >
+                </div>
+                <div class="hours-row">
+                  <span class="day">💬 Text</span>
+                  <span class="time"
+                    ><a href="sms:6054606094">(605) 460-6094</a></span
+                  >
+                </div>
+                <div class="hours-row">
+                  <span class="day">📧 Email</span>
+                  <span class="time"
+                    ><a
+                      href="mailto:reception@vitalanimalvetclinic.com"
+                      style="font-size: 0.8rem"
+                      >reception@vitalanimalvetclinic.com</a
+                    ></span
+                  >
+                </div>
+                <div class="hours-row">
+                  <span class="day">🖥️ Portal</span>
+                  <span class="time"
+                    ><a href="https://petportal.vet/vavc" target="_blank"
+                      >petportal.vet/vavc</a
+                    ></span
+                  >
+                </div>
+                <div style="margin-top: 1rem">
+                  <a
+                    href="https://www.facebook.com/Vital-Animal-Veterinary-Clinic-100076364851885/"
+                    target="_blank"
+                    class="btn-small waves-effect"
+                    style="background: #1877f2; margin: 0.2rem"
+                    >Facebook</a
+                  >
+                  <a
+                    href="https://www.instagram.com/vitalanimalveterinaryclinic/"
+                    target="_blank"
+                    class="btn-small waves-effect"
+                    style="background: #e1306c; margin: 0.2rem"
+                    >Instagram</a
+                  >
+                  <a
+                    href="https://www.yelp.com/biz/vital-animal-veterinary-clinic-sioux-falls"
+                    target="_blank"
+                    class="btn-small waves-effect"
+                    style="background: #d32323; margin: 0.2rem"
+                    >Yelp</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Meet Dr. Lisa + Team -->
+      <section class="vet-section">
+        <div class="container">
+          <p class="section-label">The Team</p>
+          <h2 style="font-size: 2rem; color: #0d47a1; margin-bottom: 1.5rem">
+            Meet the Family
+          </h2>
+
+          <!-- Dr. Lisa feature -->
+          <div
+            class="vet-info-card"
+            style="
+              border-left: 4px solid #f9a825;
+              background: linear-gradient(135deg, #fefefe, #f0f4ff);
+              margin-bottom: 2rem;
+            "
+          >
+            <div class="row" style="margin-bottom: 0">
+              <div
+                class="col s12 m2"
+                style="text-align: center; padding-top: 0.5rem"
+              >
+                <span style="font-size: 4rem">👩‍⚕️</span>
+              </div>
+              <div class="col s12 m10">
+                <h3 style="color: #0d47a1; margin: 0 0 0.25rem">
+                  Dr. Lisa Coder, DVM
+                </h3>
+                <span
+                  style="
+                    display: inline-block;
+                    background: #f9a825;
+                    color: #1a1a1a;
+                    border-radius: 20px;
+                    padding: 2px 12px;
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    margin-bottom: 0.75rem;
+                  "
+                  >Lead Veterinarian</span
+                >
+                <p
+                  style="
+                    font-size: 0.9rem;
+                    color: #424242;
+                    line-height: 1.6;
+                    margin: 0;
+                  "
+                >
+                  Dr. Lisa graduated from the University of Missouri in 2013,
+                  bringing experience across equine, mixed animal, emergency,
+                  and USDA public health veterinary medicine. In 2021 she
+                  founded Home Vet — a holistic practice offering acupuncture,
+                  laser therapy, and herbal medicine. In 2023 that expanded into
+                  Vital Animal Veterinary Clinic. She has two children, four
+                  cats, and a gecko she describes as "the love of her life." Her
+                  approach: care, heal, thrive.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team grid -->
+          <div class="row team-grid">
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">🩺</span>
+                <h4>Abby</h4>
+                <span class="role-chip">Registered Veterinary Technician</span>
+                <p>
+                  Graduated from Globe University in 2013 in Veterinary
+                  Technology. Began at Vital Animal Pet Hospital in 2015 where
+                  she discovered a deep passion for exotic animal medicine. Has
+                  3 cats and a dog. Loves fishing and crafts.
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">🩺</span>
+                <h4>Amanda</h4>
+                <span class="role-chip">Office Manager & RVT</span>
+                <p>
+                  Nearly 10 years in veterinary medicine, including ER/ICU
+                  experience. Globe University grad, passed VTNE in 2013. Her
+                  favorite part: "Getting to work with all the exotic animals
+                  that come here. Every day is something different."
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">👩‍⚕️</span>
+                <h4>Lee</h4>
+                <span class="role-chip">Veterinary Assistant</span>
+                <p>
+                  Started at Vital Animal Pet Hospital in 2019. Has a tortoise
+                  named Little Foot, 2 dogs, and a cat. Passionate about animals
+                  despite her background in business administration.
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">👨‍⚕️</span>
+                <h4>Arik</h4>
+                <span class="role-chip">Veterinary Assistant</span>
+                <p>
+                  Originally from Colorado, served in the military in South
+                  Carolina before moving to South Dakota. Passionate animal
+                  lover known for nerding out on topics — and excellent dad
+                  jokes.
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">👩‍💼</span>
+                <h4>Kisha</h4>
+                <span class="role-chip">Receptionist & Tech in Training</span>
+                <p>
+                  14 years as a cosmetologist, 7 as a Correctional Officer — now
+                  pursuing her passion for animals and training to become a Vet
+                  Tech. Has 5 dachshunds.
+                </p>
+              </div>
+            </div>
+            <div class="col s12 m6 l4">
+              <div class="team-card">
+                <span style="font-size: 2.5rem">👩‍💼</span>
+                <h4>Jennifer</h4>
+                <span class="role-chip">Receptionist</span>
+                <p>
+                  Grew up south of Sioux Falls working with dogs, including 4-H
+                  county fair dog projects. Competes in dog sports with her
+                  Belgian Malinois, Roman. Loves traveling and DIY projects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="vet-section" style="background: #f0f4ff">
+        <div class="container">
+          <p class="section-label">What Clients Say</p>
+          <h2 style="font-size: 2rem; color: #0d47a1; margin-bottom: 2rem">
+            Why Others Trust Vital Animal
+          </h2>
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "I am a keeper of many exotic critters... At this vet, they
+                  got to know everything they could about my animal and provided
+                  the best treatment possible. I am beyond appreciative of how
+                  in depth they are."
+                </p>
+                <span class="reviewer">— Blake (exotic animal keeper)</span>
+              </div>
+            </div>
+
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "Got my pet in the same morning I called with no waiting. The
+                  staff are very helpful and caring. Prices are very reasonable
+                  and Dr Lisa ROCKS!! Won't go anywhere else!!"
+                </p>
+                <span class="reviewer">— Tonya Scheinost Petersen</span>
+              </div>
+            </div>
+
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "They do acupuncture and laser therapy. Staff stayed until
+                  nearly 6pm working on our cat even though they closed at 5.
+                  The cost was a fraction compared to Omaha."
+                </p>
+                <span class="reviewer">— Alexandra Taft</span>
+              </div>
+            </div>
+
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "We called a lot of places trying to get someone willing to
+                  look at our Guinea Pig. They were the only ones who took the
+                  time to listen... Had we known about Vital earlier, we may
+                  have had a different outcome."
+                </p>
+                <span class="reviewer">— Jodi Poelstra</span>
+              </div>
+            </div>
+
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "Our 90-pound pit bull was often turned away from nail trims
+                  or told he needed full anesthesia. Vital Animal had no problem
+                  getting it done in 10 minutes. Truly the best veterinary
+                  clinic in Sioux Falls."
+                </p>
+                <span class="reviewer">— Erin Markey</span>
+              </div>
+            </div>
+
+            <div class="col s12 m6">
+              <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">
+                  "Dr. Lisa did not sugar coat anything. She was straight
+                  forward with me on everything... I couldn't imagine taking our
+                  sweet Elsa anywhere else to lay her to rest."
+                </p>
+                <span class="reviewer">— McKenzie Vigna</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Animals they see (exotic focus) -->
+      <div class="pets-section">
+        <div class="container" style="text-align: center">
+          <p class="section-label">Exotic-Friendly</p>
+          <h2 style="font-size: 2rem; color: #2e7d32; margin-bottom: 1rem">
+            They've Seen It All
+          </h2>
+          <p
+            style="
+              color: #424242;
+              margin-bottom: 1.5rem;
+              max-width: 600px;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >
+            From iguanas to bunnies, snakes to dogs — Vital Animal sees most pet
+            types. Their team's exotic experience sets them apart from typical
+            Sioux Falls vets.
+          </p>
+          <div>
+            <span class="pet-chip">🦎 Iguanas</span>
+            <span class="pet-chip">🐍 Snakes</span>
+            <span class="pet-chip">🐢 Tortoises</span>
+            <span class="pet-chip">🦎 Geckos</span>
+            <span class="pet-chip">🦎 Monitor Lizards</span>
+            <span class="pet-chip">🐸 Frogs</span>
+            <span class="pet-chip">🐰 Rabbits</span>
+            <span class="pet-chip">🐹 Guinea Pigs</span>
+            <span class="pet-chip">🦔 Hedgehogs</span>
+            <span class="pet-chip">🐭 Rats & Mice</span>
+            <span class="pet-chip">🐶 Dogs</span>
+            <span class="pet-chip">🐱 Cats</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div
+        style="
+          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          padding: 3rem 0;
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <h2 style="color: #fff; font-size: 2rem; margin-bottom: 0.5rem">
+            Just brought home a new reptile?
+          </h2>
+          <p style="color: #90caf9; margin-bottom: 1.5rem">
+            Schedule a new animal wellness exam within the first 2 weeks. Vital
+            Animal's team will get your new pet off to a healthy start.
+          </p>
+          <a
+            href="tel:6053399261"
+            class="btn-large waves-effect"
+            style="
+              background: #f9a825;
+              color: #1a1a1a;
+              font-family: 'Bebas Neue', sans-serif;
+              letter-spacing: 0.1em;
+              margin-right: 1rem;
+              font-size: 1.1rem;
+            "
+          >
+            <i class="material-icons left">phone</i>Call Now
+          </a>
+          <a
+            href="https://petportal.vet/vavc/appointment/request"
+            target="_blank"
+            class="btn-large waves-effect"
+            style="
+              background: transparent;
+              color: #fff;
+              border: 2px solid #fff;
+              font-family: 'Bebas Neue', sans-serif;
+              letter-spacing: 0.1em;
+              font-size: 1.1rem;
+              line-height: 52px;
+            "
+          >
+            Book Online
+          </a>
+        </div>
+      </div>
+
+      <!-- Back nav -->
+      <div style="background: #1a1a1a; padding: 1.5rem 0; text-align: center">
+        <a
+          href="/"
+          class="btn waves-effect"
+          style="
+            background: #2e7d32;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.08em;
+          "
+        >
+          <i class="material-icons left">arrow_back</i>Back to Vital Animals
+        </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="expo-footer">
+      <div class="container">
+        <div class="row" style="margin-bottom: 0">
+          <div class="col s12 m4">
+            <span class="footer-logo">🦎 Vital Animal Expo 2026</span>
+            <p style="font-size: 0.85rem; color: #757575; line-height: 1.6">
+              Your care information hub for the 2026 Vital Animal Reptile Expo
+              in Sioux Falls, SD.
+            </p>
+          </div>
+          <div class="col s12 m4">
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Animals
+            </p>
+            <ul class="footer-links">
+              <li><a href="/tegu-lizard">Tegu Lizard</a></li>
+              <li><a href="/savannah-monitor">Savannah Monitor</a></li>
+              <li><a href="/russian-tortoise">Russian Tortoise</a></li>
+              <li><a href="/ball-python">Ball Python</a></li>
+              <li><a href="/bearded-dragon">Bearded Dragon</a></li>
+              <li><a href="/blue-tongue-skink">Blue-Tongue Skink</a></li>
+              <li><a href="/crested-gecko">Crested Gecko</a></li>
+              <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
+            </ul>
+          </div>
+          <div class="col s12 m4">
+            <p
+              style="
+                font-family: 'Bebas Neue', sans-serif;
+                letter-spacing: 0.1em;
+                color: #9e9e9e;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Vital Animal Vet Clinic
+            </p>
+            <p style="font-size: 0.85rem; color: #757575; line-height: 1.6">
+              2809 S Spring Ave, Sioux Falls SD 57105<br />
+              📞 <a href="tel:6053399261">(605) 339-9261</a><br />
+              💬 <a href="sms:6054606094">(605) 460-6094</a><br />
+              Mon–Fri: 8:00am – 5:00pm
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          © 2026 Vital Animal Reptile Expo · Care information is for reference
+          only · Always consult a qualified exotic vet
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
 </html>
