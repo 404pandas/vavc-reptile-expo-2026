@@ -1,4 +1,4 @@
-# Netlify configuration for All Animal Reptile Expo 2026
+# Netlify configuration for Vital Animal Care Guide
 # Routes /animal-name → views/animal-name.html (clean URLs, no .html extension)
 
 [build]
@@ -53,6 +53,11 @@
 [[redirects]]
   from = "/vital-animal-vet"
   to = "/vital-animal-vet.html"
+  status = 200
+
+[[redirects]]
+  from = "/suggest"
+  to = "/suggest.html"
   status = 200
 
 # Serve static assets (CSS, JS, PDFs) from public/

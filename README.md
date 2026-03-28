@@ -1,4 +1,4 @@
-# 🦎 All Animal 2026 Reptile Expo — Care Information Hub
+# All Animal 2026 Reptile Expo — Care Information Hub
 
 A multi-page Node.js/Express website with Materialize CSS for the All Animal 2026 Reptile Expo in Sioux Falls, SD.
 
@@ -39,18 +39,18 @@ reptile-expo/
 
 ## URL Routes
 
-| URL                          | Page                          |
-|------------------------------|-------------------------------|
-| `/`                          | Home / Animal Hub             |
-| `/tegu-lizard`               | Tegu Lizard Care Sheet        |
-| `/savannah-monitor`          | Savannah Monitor Care Sheet   |
-| `/russian-tortoise`          | Russian Tortoise Care Sheet   |
-| `/ball-python`               | Ball Python Care Sheet        |
-| `/bearded-dragon`            | Bearded Dragon Care Sheet     |
-| `/blue-tongue-skink`         | Blue-Tongue Skink Care Sheet  |
-| `/crested-gecko`             | Crested Gecko Care Sheet      |
-| `/red-eared-slider`          | Red-Eared Slider Care Sheet   |
-| `/vital-animal-vet`          | Vital Animal Vet Clinic Page  |
+| URL                  | Page                         |
+| -------------------- | ---------------------------- |
+| `/`                  | Home / Animal Hub            |
+| `/tegu-lizard`       | Tegu Lizard Care Sheet       |
+| `/savannah-monitor`  | Savannah Monitor Care Sheet  |
+| `/russian-tortoise`  | Russian Tortoise Care Sheet  |
+| `/ball-python`       | Ball Python Care Sheet       |
+| `/bearded-dragon`    | Bearded Dragon Care Sheet    |
+| `/blue-tongue-skink` | Blue-Tongue Skink Care Sheet |
+| `/crested-gecko`     | Crested Gecko Care Sheet     |
+| `/red-eared-slider`  | Red-Eared Slider Care Sheet  |
+| `/vital-animal-vet`  | Vital Animal Vet Clinic Page |
 
 ## Quick Start
 
@@ -110,6 +110,7 @@ For static hosting on Netlify (no server-side Node), you'll need to:
 2. Or use Netlify Functions to run the Express server
 
 **netlify.toml example for static serving:**
+
 ```toml
 [[redirects]]
   from = "/tegu-lizard"
@@ -129,6 +130,7 @@ Then move all HTML files to the root or a `public/` folder.
 ## Vet Partner Info
 
 **Vital Animal Veterinary Clinic**
+
 - 📍 2809 S Spring Ave, Sioux Falls, SD 57105
 - 📞 (605) 339-9261
 - 💬 Text: (605) 460-6094

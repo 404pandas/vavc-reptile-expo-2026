@@ -3,22 +3,22 @@
    Base: Materialize CSS (loaded via CDN)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap");
 
 :root {
-  --expo-green:   #2e7d32;
+  --expo-green: #2e7d32;
   --expo-green-l: #43a047;
-  --expo-gold:    #f9a825;
-  --expo-dark:    #1a1a1a;
+  --expo-gold: #f9a825;
+  --expo-dark: #1a1a1a;
   --expo-surface: #f5f5f0;
-  --expo-text:    #212121;
-  --expo-muted:   #616161;
-  --scale-img:    scale(1.04);
+  --expo-text: #212121;
+  --expo-muted: #616161;
+  --scale-img: scale(1.04);
 }
 
 /* ── Base ─────────────────────────────────────────────────── */
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   background: var(--expo-surface);
   color: var(--expo-text);
   min-height: 100vh;
@@ -26,10 +26,15 @@ body {
   flex-direction: column;
 }
 
-main { flex: 1; }
+main {
+  flex: 1;
+}
 
-h1, h2, h3, .brand-logo {
-  font-family: 'Bebas Neue', sans-serif;
+h1,
+h2,
+h3,
+.brand-logo {
+  font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.04em;
 }
 
@@ -46,23 +51,36 @@ nav .brand-logo {
   padding-left: 1rem;
 }
 
-nav .brand-logo span.accent { color: #fff; }
+nav .brand-logo span.accent {
+  color: #fff;
+}
 
 nav ul a {
   color: #e0e0e0 !important;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.03em;
   transition: color 0.2s;
 }
-nav ul a:hover { color: var(--expo-gold) !important; }
+nav ul a:hover {
+  color: var(--expo-gold) !important;
+}
 
 /* Sidenav */
-.sidenav { background: var(--expo-dark); }
-.sidenav li a { color: #e0e0e0; font-weight: 600; }
-.sidenav li a:hover { color: var(--expo-gold); }
-.sidenav .sidenav-close { color: var(--expo-gold); }
+.sidenav {
+  background: var(--expo-dark);
+}
+.sidenav li a {
+  color: #e0e0e0;
+  font-weight: 600;
+}
+.sidenav li a:hover {
+  color: var(--expo-gold);
+}
+.sidenav .sidenav-close {
+  color: var(--expo-gold);
+}
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .expo-hero {
@@ -74,7 +92,7 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 }
 
 .expo-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -84,7 +102,7 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   display: inline-block;
   background: var(--expo-gold);
   color: var(--expo-dark);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.15em;
   padding: 0.2rem 1rem;
@@ -97,10 +115,12 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   color: #fff;
   line-height: 1.05;
   margin: 0.5rem 0;
-  text-shadow: 2px 4px 20px rgba(0,0,0,0.4);
+  text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.expo-hero h1 .gold { color: var(--expo-gold); }
+.expo-hero h1 .gold {
+  color: var(--expo-gold);
+}
 
 .expo-hero p.subtitle {
   color: #b0c8b0;
@@ -127,13 +147,15 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 }
 .animal-hero .animal-subtitle {
   color: var(--expo-gold);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.1em;
   font-size: 1rem;
 }
 
 /* ── Animal Cards (index) ─────────────────────────────────── */
-.animals-section { padding: 3rem 0; }
+.animals-section {
+  padding: 3rem 0;
+}
 .animals-section h2 {
   font-size: 2rem;
   color: var(--expo-green);
@@ -150,7 +172,7 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 }
 
 .animal-card:hover {
-  box-shadow: 0 12px 40px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18) !important;
   transform: translateY(-4px);
 }
 
@@ -169,20 +191,31 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   top: 10px;
   right: 10px;
   font-size: 0.65rem;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 20px;
   letter-spacing: 0.05em;
 }
 
-.diff-beginner  { background: #43a047; color: #fff; }
-.diff-moderate  { background: #f9a825; color: #1a1a1a; }
-.diff-advanced  { background: #e53935; color: #fff; }
+.diff-beginner {
+  background: #43a047;
+  color: #fff;
+}
+.diff-moderate {
+  background: #f9a825;
+  color: #1a1a1a;
+}
+.diff-advanced {
+  background: #e53935;
+  color: #fff;
+}
 
-.animal-card .card-content { padding: 1.2rem !important; }
+.animal-card .card-content {
+  padding: 1.2rem !important;
+}
 .animal-card .card-content .card-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.4rem;
   color: var(--expo-dark);
   letter-spacing: 0.05em;
@@ -200,16 +233,22 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   border-top: 1px solid #f0f0f0 !important;
 }
 .animal-card .card-action a {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   color: var(--expo-green) !important;
 }
-.animal-card .card-action a:hover { color: var(--expo-gold) !important; }
+.animal-card .card-action a:hover {
+  color: var(--expo-gold) !important;
+}
 
 /* ── Care Info Sections ───────────────────────────────────── */
-.care-section { padding: 2.5rem 0; }
-.care-section:nth-child(even) { background: #fff; }
+.care-section {
+  padding: 2.5rem 0;
+}
+.care-section:nth-child(even) {
+  background: #fff;
+}
 
 .care-card {
   background: #fff;
@@ -217,7 +256,7 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   border-left: 4px solid var(--expo-green);
   padding: 1.5rem 1.5rem 1.5rem 1.25rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .care-card h3 {
@@ -240,7 +279,9 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   line-height: 1.5;
 }
 
-.care-card ul li strong { color: var(--expo-dark); }
+.care-card ul li strong {
+  color: var(--expo-dark);
+}
 
 /* Quick stats bar */
 .quick-stats {
@@ -260,7 +301,7 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 }
 
 .stat-item .stat-value {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.8rem;
   color: var(--expo-gold);
   display: block;
@@ -285,7 +326,10 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
-.caresheet-section p { color: #b0c8b0; margin-bottom: 1.5rem; }
+.caresheet-section p {
+  color: #b0c8b0;
+  margin-bottom: 1.5rem;
+}
 
 .pdf-viewer-frame {
   width: 100%;
@@ -298,26 +342,26 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 .download-btn {
   background: var(--expo-gold) !important;
   color: var(--expo-dark) !important;
-  font-family: 'Bebas Neue', sans-serif !important;
+  font-family: "Bebas Neue", sans-serif !important;
   font-size: 1.1rem !important;
   letter-spacing: 0.1em !important;
   border-radius: 4px !important;
   padding: 0 2rem !important;
   height: 48px !important;
   line-height: 48px !important;
-  box-shadow: 0 4px 14px rgba(249,168,37,0.4) !important;
+  box-shadow: 0 4px 14px rgba(249, 168, 37, 0.4) !important;
   transition: all 0.2s !important;
 }
 .download-btn:hover {
   background: #fbc02d !important;
-  box-shadow: 0 6px 20px rgba(249,168,37,0.55) !important;
+  box-shadow: 0 6px 20px rgba(249, 168, 37, 0.55) !important;
 }
 
 .view-btn {
   background: transparent !important;
   color: var(--expo-gold) !important;
   border: 2px solid var(--expo-gold) !important;
-  font-family: 'Bebas Neue', sans-serif !important;
+  font-family: "Bebas Neue", sans-serif !important;
   font-size: 1.1rem !important;
   letter-spacing: 0.1em !important;
   border-radius: 4px !important;
@@ -327,23 +371,37 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   transition: all 0.2s !important;
 }
 .view-btn:hover {
-  background: rgba(249,168,37,0.1) !important;
+  background: rgba(249, 168, 37, 0.1) !important;
 }
 
 /* ── Vet Page ─────────────────────────────────────────────── */
 .vet-hero {
-  background: linear-gradient(135deg, #0d1b2a, #1a3a4a);
-  padding: 4rem 0;
+  background: linear-gradient(
+    135deg,
+    #1b2a1c 0%,
+    #2e4a1e 50%,
+    #1a3a1a 100%
+  ) !important;
+  padding: 5rem 0 4rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.vet-hero h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.5rem); }
-.vet-hero .vet-tagline { color: #80cbc4; font-size: 1.1rem; margin-top: 0.5rem; }
+.vet-hero h1 {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.vet-hero .vet-tagline {
+  color: #80cbc4;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
 
 .vet-info-card {
   background: #fff;
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin-bottom: 1.5rem;
 }
 
@@ -360,9 +418,16 @@ nav ul a:hover { color: var(--expo-gold) !important; }
   border-bottom: 1px solid #f0f0f0;
   font-size: 0.9rem;
 }
-.hours-row:last-child { border-bottom: none; }
-.hours-row .day { font-weight: 700; color: var(--expo-dark); }
-.hours-row .time { color: var(--expo-muted); }
+.hours-row:last-child {
+  border-bottom: none;
+}
+.hours-row .day {
+  font-weight: 700;
+  color: var(--expo-dark);
+}
+.hours-row .time {
+  color: var(--expo-muted);
+}
 
 .service-chip {
   display: inline-block;
@@ -379,22 +444,34 @@ nav ul a:hover { color: var(--expo-gold) !important; }
 .map-embed {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
   width: 100%;
   height: 380px;
 }
-.map-embed iframe { width: 100%; height: 100%; border: none; }
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
 .team-card {
   background: #fff;
   border-radius: 8px;
   padding: 1.25rem;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   margin-bottom: 1rem;
 }
-.team-card .team-emoji { font-size: 3rem; display: block; margin-bottom: 0.5rem; }
-.team-card h4 { margin: 0 0 0.2rem; font-size: 1.1rem; color: var(--expo-dark); }
+.team-card .team-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.team-card h4 {
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+  color: var(--expo-dark);
+}
 .team-card .team-role {
   font-size: 0.75rem;
   color: #fff;
@@ -413,7 +490,7 @@ footer.expo-footer {
 }
 
 footer .footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.6rem;
   color: var(--expo-gold);
   letter-spacing: 0.1em;
@@ -421,15 +498,21 @@ footer .footer-logo {
   margin-bottom: 0.5rem;
 }
 
-footer a { color: #80c8a0 !important; }
-footer a:hover { color: var(--expo-gold) !important; }
+footer a {
+  color: #80c8a0 !important;
+}
+footer a:hover {
+  color: var(--expo-gold) !important;
+}
 
 footer .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-footer .footer-links li { margin-bottom: 0.4rem; }
+footer .footer-links li {
+  margin-bottom: 0.4rem;
+}
 footer .footer-links a {
   font-size: 0.85rem;
   color: #9e9e9e !important;
@@ -455,8 +538,12 @@ footer .footer-bottom {
   color: var(--expo-muted);
   font-size: 0.82rem;
 }
-.expo-breadcrumb .breadcrumb::before { color: #ccc !important; }
-.expo-breadcrumb a { color: var(--expo-green) !important; }
+.expo-breadcrumb .breadcrumb::before {
+  color: #ccc !important;
+}
+.expo-breadcrumb a {
+  color: var(--expo-green) !important;
+}
 
 /* ── Warning/Tip Chips ───────────────────────────────────── */
 .care-warning {
@@ -480,7 +567,7 @@ footer .footer-bottom {
 
 /* ── Utility ──────────────────────────────────────────────── */
 .section-label {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.15em;
   font-size: 0.8rem;
   color: var(--expo-muted);
@@ -488,12 +575,24 @@ footer .footer-bottom {
   margin-bottom: 0.25rem;
 }
 
-.green-text { color: var(--expo-green) !important; }
-.gold-text  { color: var(--expo-gold) !important; }
+.green-text {
+  color: var(--expo-green) !important;
+}
+.gold-text {
+  color: var(--expo-gold) !important;
+}
 
 @media (max-width: 600px) {
-  .expo-hero { padding: 3rem 0 2.5rem; }
-  .quick-stats { gap: 0.75rem; }
-  .stat-item .stat-value { font-size: 1.4rem; }
-  .pdf-viewer-frame { height: 500px; }
+  .expo-hero {
+    padding: 3rem 0 2.5rem;
+  }
+  .quick-stats {
+    gap: 0.75rem;
+  }
+  .stat-item .stat-value {
+    font-size: 1.4rem;
+  }
+  .pdf-viewer-frame {
+    height: 500px;
+  }
 }

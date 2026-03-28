@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Water Quality Guide</title>
+    <title>Suggest an Animal — Vital Animal Care Hub</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -102,115 +102,153 @@
         </ul>
       </div>
     </nav>
+
     <main>
+      <!-- Breadcrumb -->
       <div class="expo-breadcrumb">
         <div class="container">
           <a href="/" class="breadcrumb">Home</a>
-          <span class="breadcrumb">Water Quality</span>
+          <span class="breadcrumb">Suggest an Animal</span>
         </div>
       </div>
 
-      <div
-        style="
-          background: linear-gradient(135deg, #0d2a3a, #1a5276);
-          padding: 3rem 0 2.5rem;
-          text-align: center;
-        "
-      >
+      <!-- Hero -->
+      <div class="animal-hero">
         <div class="container">
-          <span style="font-size: 3.5rem; display: block; margin-bottom: 0.5rem"
-            >💧</span
-          >
-          <h1
-            style="color: #fff; font-size: clamp(2rem, 5vw, 3.5rem); margin: 0"
-          >
-            Water Quality
-          </h1>
-          <p
-            style="
-              color: rgba(255, 255, 255, 0.7);
-              margin: 0.75rem auto 0;
-              max-width: 540px;
-              font-size: 1rem;
-            "
-          >
-            Essential for aquatic turtles, frogs, and any reptile with standing
-            water.
+          <span class="animal-emoji">💡</span>
+          <h1>Suggest an Animal</h1>
+          <p style="color: #c8e6c9; margin-top: 0.5rem; font-size: 1.05rem">
+            Have an animal you'd love to see care information for? Let us know!
           </p>
         </div>
       </div>
 
+      <!-- Form section -->
       <section class="care-section">
         <div class="container">
           <div class="row">
-            <!-- Main: PDF viewer -->
-            <div class="col s12 l8">
-              <div
-                class="care-card"
-                style="padding: 0; overflow: hidden; border-left-color: #1565c0"
-              >
-                <div style="padding: 1.25rem 1.5rem 0.75rem; background: #fff">
-                  <h3 style="margin: 0">
-                    <i
-                      class="material-icons tiny"
-                      style="
-                        color: #e65100;
-                        vertical-align: middle;
-                        margin-right: 0.4rem;
-                      "
-                      >picture_as_pdf</i
-                    >Water Quality Guide
-                  </h3>
-                  <p
-                    style="
-                      margin: 0.4rem 0 1rem;
-                      color: #616161;
-                      font-size: 0.88rem;
-                    "
-                  >
-                    View the full guide below, or download to keep.
-                  </p>
-                  <div
-                    style="
-                      display: flex;
-                      gap: 0.75rem;
-                      flex-wrap: wrap;
-                      margin-bottom: 1rem;
-                    "
-                  >
-                    <a
-                      href="/pdfs/water-quality.pdf"
-                      download
-                      class="btn waves-effect download-btn"
-                    >
-                      <i class="material-icons left">download</i>Download PDF
-                    </a>
-                    <a
-                      href="/pdfs/water-quality.pdf"
-                      target="_blank"
-                      class="btn waves-effect view-btn"
-                    >
-                      <i class="material-icons left">open_in_new</i>Open Full
-                      Screen
-                    </a>
-                  </div>
-                </div>
-                <iframe
-                  src="/pdfs/water-quality.pdf"
-                  class="pdf-viewer-frame"
-                  title="Water Quality Guide PDF"
-                  style="border-top: 1px solid #e0e0e0"
+            <div class="col s12 l7">
+              <div class="care-card">
+                <h3>
+                  <i class="material-icons tiny green-text">send</i>
+                  Send a Suggestion
+                </h3>
+                <p
+                  style="
+                    color: #616161;
+                    font-size: 0.92rem;
+                    margin-bottom: 1.5rem;
+                  "
                 >
-                  <p style="padding: 1rem">
-                    Your browser does not support inline PDFs.
-                    <a href="/pdfs/water-quality.pdf">Download it here.</a>
-                  </p>
-                </iframe>
+                  We're always looking to expand our information lineup. Tell us
+                  what animal you'd like to see featured, and we'll do our best
+                  to make it happen!
+                </p>
+
+                <form id="suggest-form">
+                  <div class="row" style="margin-bottom: 0">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix" style="color: #2e7d32"
+                        >person</i
+                      >
+                      <input id="name" name="name" type="text" required />
+                      <label for="name"
+                        >Your Name <span style="color: #c62828">*</span></label
+                      >
+                    </div>
+
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix" style="color: #2e7d32"
+                        >email</i
+                      >
+                      <input id="email" name="email" type="email" />
+                      <label for="email"
+                        >Email Address
+                        <span style="color: #757575; font-size: 0.8rem"
+                          >(optional)</span
+                        ></label
+                      >
+                    </div>
+
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix" style="color: #2e7d32"
+                        >pets</i
+                      >
+                      <input id="animal" name="animal" type="text" required />
+                      <label for="animal"
+                        >Animal You'd Like to See
+                        <span style="color: #c62828">*</span></label
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Status messages -->
+                  <div
+                    id="form-success"
+                    class="card-panel green lighten-4"
+                    style="
+                      display: none;
+                      border-left: 4px solid #2e7d32;
+                      margin-top: 1rem;
+                    "
+                  >
+                    <span style="color: #1b5e20">
+                      <i
+                        class="material-icons tiny"
+                        style="vertical-align: middle; margin-right: 0.4rem"
+                        >check_circle</i
+                      >
+                      <strong>Thanks for your suggestion!</strong> We'll take a
+                      look and see what we can do for future expos.
+                    </span>
+                  </div>
+                  <div
+                    id="form-error"
+                    class="card-panel red lighten-4"
+                    style="
+                      display: none;
+                      border-left: 4px solid #c62828;
+                      margin-top: 1rem;
+                    "
+                  >
+                    <span style="color: #b71c1c">
+                      <i
+                        class="material-icons tiny"
+                        style="vertical-align: middle; margin-right: 0.4rem"
+                        >error</i
+                      >
+                      <strong>Something went wrong.</strong> Please try again or
+                      email us directly at
+                      <a
+                        href="mailto:reception@vitalanimalvetclinic.com"
+                        style="color: #b71c1c"
+                        >reception@vitalanimalvetclinic.com</a
+                      >.
+                    </span>
+                  </div>
+
+                  <div style="margin-top: 1.5rem">
+                    <button
+                      type="submit"
+                      id="submit-btn"
+                      class="btn waves-effect"
+                      style="
+                        background: #2e7d32;
+                        font-family: 'Bebas Neue', sans-serif;
+                        letter-spacing: 0.08em;
+                        font-size: 1rem;
+                        padding: 0 2rem;
+                      "
+                    >
+                      <i class="material-icons left">send</i>Submit Suggestion
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
 
             <!-- Sidebar -->
-            <div class="col s12 l4">
+            <div class="col s12 l5">
               <div
                 class="care-card"
                 style="
@@ -231,8 +269,20 @@
                     margin-bottom: 0.75rem;
                   "
                 >
-                  Vital Animal Veterinary Clinic in Sioux Falls specializes in
-                  reptiles &amp; exotic animals.
+                  Vital Animal Veterinary Clinic in Sioux Falls sees reptiles
+                  &amp; exotic animals.
+                </p>
+                <p
+                  style="
+                    color: #b0c8b0;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  📞
+                  <a href="tel:6053399261" style="color: #f9a825"
+                    >(605) 339-9261</a
+                  >
                 </p>
                 <p
                   style="
@@ -241,10 +291,7 @@
                     margin-bottom: 1rem;
                   "
                 >
-                  📞
-                  <a href="tel:6053399261" style="color: #f9a825"
-                    >(605) 339-9261</a
-                  >
+                  🕐 Mon–Fri 8am–5pm
                 </p>
                 <a
                   href="/vital-animal-vet"
@@ -262,52 +309,47 @@
                 </a>
               </div>
 
-              <div class="care-card" style="border-left-color: #1565c0">
-                <h3>
-                  <i class="material-icons tiny" style="color: #1565c0">pets</i>
-                  Relevant Animals
-                </h3>
-                <p
-                  style="
-                    font-size: 0.85rem;
-                    color: #616161;
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  This guide is especially important for:
-                </p>
-                <ul style="padding-left: 1rem">
-                  <li><a href="/red-eared-slider">Red-Eared Slider</a></li>
-                  <li><a href="/box-turtle">Box Turtle</a></li>
-                  <li><a href="/dart-frog">Dart Frog</a></li>
-                  <li>
-                    <a href="/argentine-horned-frog">Argentine Horned Frog</a>
-                  </li>
-                  <li><a href="/red-eyed-tree-frog">Red-Eyed Tree Frog</a></li>
-                  <li><a href="/white-tree-frog">White Tree Frog</a></li>
-                  <li>
-                    <a href="/chinese-water-dragon">Chinese Water Dragon</a>
-                  </li>
-                </ul>
-              </div>
-
               <div
                 class="care-card"
                 style="background: #e8f5e9; border-left-color: #2e7d32"
               >
                 <h3 style="color: #2e7d32">
                   <i class="material-icons tiny" style="color: #2e7d32"
-                    >menu_book</i
+                    >lightbulb</i
                   >
-                  More Guides
+                  Good to Know
                 </h3>
-                <ul style="padding-left: 1rem">
-                  <li><a href="/water-quality">Water Quality</a></li>
-                  <li><a href="/uv-light">UV Light</a></li>
+                <ul style="color: #424242; font-size: 0.9rem">
                   <li>
-                    <a href="/hibernation">Hibernation &amp; Brumation</a>
+                    Suggestions are reviewed by our team and will be added as
+                    our developer is able.
+                  </li>
+                  <li>
+                    Adding your email lets us follow up with you when we have
+                    added your suggestion!
+                  </li>
+                  <li>We consider all species, exotic and common!</li>
+                  <li>
+                    Popular requests may appear at future expos as new
+                    brochures!
                   </li>
                 </ul>
+              </div>
+
+              <div class="care-card">
+                <h3>
+                  <i class="material-icons tiny green-text">pets</i> Browse
+                  Animals
+                </h3>
+                <p
+                  style="
+                    font-size: 0.85rem;
+                    color: #424242;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  Check out care sheets for all current expo animals.
+                </p>
                 <a
                   href="/"
                   class="btn waves-effect"
@@ -316,10 +358,9 @@
                     font-family: 'Bebas Neue', sans-serif;
                     letter-spacing: 0.08em;
                     width: 100%;
-                    margin-top: 0.75rem;
                   "
                 >
-                  <i class="material-icons left">arrow_back</i>Vital Animals
+                  <i class="material-icons left">arrow_back</i>All Animals
                 </a>
               </div>
             </div>
@@ -329,6 +370,30 @@
     </main>
 
     <footer class="expo-footer">
+      <div
+        style="
+          background: #1a2e1a;
+          border-bottom: 1px solid #2a3e2a;
+          padding: 1.25rem 0;
+          text-align: center;
+        "
+      >
+        <p
+          style="
+            margin: 0;
+            font-size: 1rem;
+            color: #c8e6c9;
+            letter-spacing: 0.02em;
+          "
+        >
+          Made with 💓 by
+          <a href="/vital-animal-vet" style="color: #f9a825; font-weight: 700"
+            >Vital Animal Veterinary Clinic</a
+          >
+          for the 2026 Reptile Expo
+        </p>
+      </div>
+
       <div class="container" style="padding-top: 2rem">
         <div class="row" style="margin-bottom: 0">
           <!-- Vet Info -->
@@ -494,7 +559,6 @@
             </ul>
           </div>
         </div>
-        <!-- .row -->
 
         <div class="footer-bottom">
           © 2026
@@ -528,5 +592,50 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/main.js"></script>
+    <script>
+      document
+        .getElementById("suggest-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const btn = document.getElementById("submit-btn");
+          const successEl = document.getElementById("form-success");
+          const errorEl = document.getElementById("form-error");
+
+          successEl.style.display = "none";
+          errorEl.style.display = "none";
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="material-icons left">hourglass_empty</i>Sending...';
+
+          const body = {
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            animal: document.getElementById("animal").value.trim(),
+          };
+
+          try {
+            const res = await fetch("/api/suggest", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body),
+            });
+
+            if (res.ok) {
+              successEl.style.display = "block";
+              this.reset();
+              M.updateTextFields();
+            } else {
+              errorEl.style.display = "block";
+            }
+          } catch {
+            errorEl.style.display = "block";
+          }
+
+          btn.disabled = false;
+          btn.innerHTML =
+            '<i class="material-icons left">send</i>Submit Suggestion';
+        });
+    </script>
   </body>
 </html>

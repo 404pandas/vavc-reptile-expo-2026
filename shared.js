@@ -1,44 +1,48 @@
 // shared.js — reusable HTML blocks for all generated pages
 
 const NAV_LINKS = [
-  { href: '/argentine-horned-frog',  label: 'Argentine Horned Frog' },
-  { href: '/ball-python',            label: 'Ball Python' },
-  { href: '/bearded-dragon',         label: 'Bearded Dragon' },
-  { href: '/blue-tongue-skink',      label: 'Blue-Tongue Skink' },
-  { href: '/boa-constrictor',        label: 'Boa Constrictor' },
-  { href: '/box-turtle',             label: 'Box Turtle' },
-  { href: '/chinese-water-dragon',   label: 'Chinese Water Dragon' },
-  { href: '/collared-lizard',        label: 'Collared Lizard' },
-  { href: '/corn-snake',             label: 'Corn Snake' },
-  { href: '/dart-frog',              label: 'Dart Frog' },
-  { href: '/iguana',                 label: 'Iguana' },
-  { href: '/leopard-gecko',          label: 'Leopard Gecko' },
-  { href: '/panther-chameleon',      label: 'Panther Chameleon' },
-  { href: '/red-eared-slider',       label: 'Red-Eared Slider' },
-  { href: '/red-eyed-tree-frog',     label: 'Red-Eyed Tree Frog' },
-  { href: '/red-footed-tortoise',    label: 'Red-Footed Tortoise' },
-  { href: '/russian-tortoise',       label: 'Russian Tortoise' },
-  { href: '/savannah-monitor',       label: 'Savannah Monitor' },
-  { href: '/sulcata-tortoise',       label: 'Sulcata Tortoise' },
-  { href: '/tegu',                   label: 'Tegu' },
-  { href: '/uromastyx',              label: 'Uromastyx' },
-  { href: '/veiled-chameleon',       label: 'Veiled Chameleon' },
-  { href: '/white-tree-frog',        label: 'White Tree Frog' },
+  { href: "/argentine-horned-frog", label: "Argentine Horned Frog" },
+  { href: "/ball-python", label: "Ball Python" },
+  { href: "/bearded-dragon", label: "Bearded Dragon" },
+  { href: "/blue-tongue-skink", label: "Blue-Tongue Skink" },
+  { href: "/boa-constrictor", label: "Boa Constrictor" },
+  { href: "/box-turtle", label: "Box Turtle" },
+  { href: "/chinese-water-dragon", label: "Chinese Water Dragon" },
+  { href: "/collared-lizard", label: "Collared Lizard" },
+  { href: "/corn-snake", label: "Corn Snake" },
+  { href: "/dart-frog", label: "Dart Frog" },
+  { href: "/iguana", label: "Iguana" },
+  { href: "/leopard-gecko", label: "Leopard Gecko" },
+  { href: "/panther-chameleon", label: "Panther Chameleon" },
+  { href: "/red-eared-slider", label: "Red-Eared Slider" },
+  { href: "/red-eyed-tree-frog", label: "Red-Eyed Tree Frog" },
+  { href: "/red-footed-tortoise", label: "Red-Footed Tortoise" },
+  { href: "/russian-tortoise", label: "Russian Tortoise" },
+  { href: "/savannah-monitor", label: "Savannah Monitor" },
+  { href: "/sulcata-tortoise", label: "Sulcata Tortoise" },
+  { href: "/tegu", label: "Tegu" },
+  { href: "/uromastyx", label: "Uromastyx" },
+  { href: "/veiled-chameleon", label: "Veiled Chameleon" },
+  { href: "/white-tree-frog", label: "White Tree Frog" },
 ];
 
 const INFO_LINKS = [
-  { href: '/water-quality',   label: '💧 Water Quality' },
-  { href: '/uv-light',        label: '☀️ UV Light' },
-  { href: '/hibernation',     label: '❄️ Hibernation' },
+  { href: "/water-quality", label: "Water Quality" },
+  { href: "/uv-light", label: "UV Light" },
+  { href: "/hibernation", label: "Hibernation" },
 ];
 
 function buildSidenav() {
-  const animalItems = NAV_LINKS.map(l => `  <li><a href="${l.href}">${l.label}</a></li>`).join('\n');
-  const infoItems = INFO_LINKS.map(l => `  <li><a href="${l.href}">${l.label}</a></li>`).join('\n');
+  const animalItems = NAV_LINKS.map(
+    (l) => `  <li><a href="${l.href}">${l.label}</a></li>`
+  ).join("\n");
+  const infoItems = INFO_LINKS.map(
+    (l) => `  <li><a href="${l.href}">${l.label}</a></li>`
+  ).join("\n");
   return `
 <ul class="sidenav" id="mobile-nav">
   <li><div class="user-view" style="background:#1a1a1a;padding:1rem;">
-    <span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#f9a825;letter-spacing:0.1em;">🦎 All Animal Expo 2026</span>
+    <span style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#f9a825;letter-spacing:0.1em;"> All Animal Expo 2026</span>
   </div></li>
   <li><a href="/">Home</a></li>
   <li><div class="divider" style="background:#333"></div></li>
@@ -56,13 +60,13 @@ function buildNav() {
   return `
 <nav class="expo-nav">
   <div class="nav-wrapper container">
-    <a href="/" class="brand-logo">🦎 <span class="accent">All Animal</span> Expo <span style="color:#f9a825">2026</span></a>
+    <a href="/" class="brand-logo"> <span class="accent">All Animal</span> Expo <span style="color:#f9a825">2026</span></a>
     <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="/water-quality">💧 Water</a></li>
-      <li><a href="/uv-light">☀️ UV Light</a></li>
-      <li><a href="/hibernation">❄️ Hibernation</a></li>
+      <li><a href="/water-quality">Water</a></li>
+      <li><a href="/uv-light">UV Light</a></li>
+      <li><a href="/hibernation">Hibernation</a></li>
       <li><a href="/vital-animal-vet" style="color:#f9a825!important">🏥 Vet Partner</a></li>
     </ul>
   </div>
@@ -70,7 +74,9 @@ function buildNav() {
 }
 
 function buildFooter() {
-  const animalCols = NAV_LINKS.map(l => `          <li><a href="${l.href}">${l.label}</a></li>`).join('\n');
+  const animalCols = NAV_LINKS.map(
+    (l) => `          <li><a href="${l.href}">${l.label}</a></li>`
+  ).join("\n");
   return `
 <footer class="expo-footer">
   <!-- Made with love banner -->
@@ -142,9 +148,9 @@ function buildFooter() {
       <div class="col s6 m4 l2">
         <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:#9e9e9e;margin-bottom:0.5rem;font-size:0.85rem;">CARE GUIDES</p>
         <ul class="footer-links">
-          <li><a href="/water-quality">💧 Water Quality</a></li>
-          <li><a href="/uv-light">☀️ UV Light</a></li>
-          <li><a href="/hibernation">❄️ Hibernation</a></li>
+          <li><a href="/water-quality">Water Quality</a></li>
+          <li><a href="/uv-light">UV Light</a></li>
+          <li><a href="/hibernation">Hibernation</a></li>
         </ul>
         <p style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.1em;color:#9e9e9e;margin-bottom:0.5rem;font-size:0.85rem;margin-top:1rem;">CONNECT</p>
         <ul class="footer-links">
@@ -167,4 +173,11 @@ const SCRIPTS = `
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/main.js"></script>`;
 
-module.exports = { buildSidenav, buildNav, buildFooter, SCRIPTS, NAV_LINKS, INFO_LINKS };
+module.exports = {
+  buildSidenav,
+  buildNav,
+  buildFooter,
+  SCRIPTS,
+  NAV_LINKS,
+  INFO_LINKS,
+};
