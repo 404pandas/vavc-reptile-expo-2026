@@ -87,6 +87,11 @@
   to = "https://allanimal.netlify.app/css/:splat"
   status = 200
 
+[[redirects]]
+  from = "/images/*"
+  to = "/images/images/:splat"
+  status = 200
+
 # 404 fallback
 [[redirects]]
   from = "/*"
