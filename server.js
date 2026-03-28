@@ -87,5 +87,5 @@ app.use((req, res) =>
 );
 
 app.listen(PORT, () =>
-  console.log(`\n All Animal Reptile Expo 2026 → http://localhost:${PORT}\n`)
+  console.log(`\n Vital Animal Care Hub → http://localhost:${PORT}\n`)
 );
