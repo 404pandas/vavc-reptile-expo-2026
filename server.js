@@ -70,6 +70,9 @@ const pages = [
   "hibernation",
   "vital-animal-vet",
   "suggest",
+  "game",
+  "secret-game",
+  "shed-game",
 ];
 
 pages.forEach((slug) => {

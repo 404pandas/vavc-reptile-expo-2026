@@ -66,6 +66,21 @@
   to = "/suggest.html"
   status = 200
 
+[[redirects]]
+  from = "/game"
+  to = "/game.html"
+  status = 200
+
+[[redirects]]
+  from = "/secret"
+  to = "/secret-game.html"
+  status = 200
+
+[[redirects]]
+  from = "/shed"
+  to = "/shed-game.html"
+  status = 200
+
 # Serve static assets (CSS, JS, PDFs) from public/
 [[redirects]]
   from = "/css/*"

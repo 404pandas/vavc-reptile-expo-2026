@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katara Is Stuck Under the Shed!</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(
+          160deg,
+          #1b2a1c 0%,
+          #2e4a1e 50%,
+          #1a3a1a 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0.75rem 2rem;
+        gap: 0.75rem;
+      }
+      .hero {
+        text-align: center;
+        color: #fff;
+      }
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+        color: #f9a825;
+        text-shadow: 0 0 20px rgba(249, 168, 37, 0.4);
+        margin: 0;
+        line-height: 1;
+      }
+      .hero p {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+      }
+      .secret-badge {
+        display: inline-block;
+        background: #f9a825;
+        border-radius: 2px;
+        padding: 3px 14px;
+        font-size: 0.75rem;
+        color: #1a1a1a;
+        letter-spacing: 2px;
+        font-family: "Bebas Neue", sans-serif;
+        margin-bottom: 0.4rem;
+      }
+      .game-wrap {
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(249, 168, 37, 0.25);
+        border-radius: 16px;
+        padding: 1rem;
+        width: 100%;
+        max-width: 540px;
+      }
+      #hud {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      #hud .stat {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      #hud .stat span {
+        color: #f9a825;
+      }
+      #prog-wrap {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        height: 6px;
+        margin-bottom: 0.6rem;
+        overflow: hidden;
+      }
+      #prog-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #2e7d32, #f9a825);
+        border-radius: 4px;
+        width: 0%;
+      }
+      #c {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        border: 2px solid rgba(46, 125, 50, 0.4);
+        touch-action: none;
+      }
+      #msg {
+        text-align: center;
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-top: 0.6rem;
+        min-height: 18px;
+      }
+      /* TWO BUTTONS */
+      .btn-row {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: 0.75rem;
+      }
+      .btn-row button {
+        flex: 1;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 1.5px;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 0;
+        cursor: pointer;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        transition: transform 0.08s, opacity 0.1s;
+      }
+      .btn-row button:active {
+        transform: scale(0.96);
+        opacity: 0.85;
+      }
+      #btn-jump {
+        background: #2e7d32;
+        color: #fff;
+      }
+      #btn-duck {
+        background: #f9a825;
+        color: #1a1a1a;
+      }
+      #btn-start {
+        display: block;
+        width: 100%;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        border: none;
+        border-radius: 8px;
+        padding: 14px 0;
+        cursor: pointer;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        background: #2e7d32;
+        color: #fff;
+        margin-top: 0.75rem;
+        transition: transform 0.08s;
+      }
+      #btn-start:active {
+        transform: scale(0.97);
+      }
+      .instructions {
+        max-width: 540px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(46, 125, 50, 0.25);
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+      .instructions strong {
+        color: #f9a825;
+        font-weight: 700;
+      }
+      .back-link {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.78rem;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        color: #f9a825;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="secret-badge">VAVC SECRET</div>
+      <h1>Stuck Under<br />The Shed!</h1>
+      <p>Help Katara escape before the firefighters give up</p>
+    </div>
+
+    <div class="game-wrap">
+      <div id="hud">
+        <div class="stat">DIST: <span id="dist-disp">0</span>m</div>
+        <div class="stat">BEST: <span id="best-disp">0</span>m</div>
+        <div class="stat" id="hits-disp">🐾🐾🐾</div>
+      </div>
+      <div id="prog-wrap"><div id="prog-bar"></div></div>
+      <canvas id="c"></canvas>
+      <div id="msg">tap the button below to start</div>
+      <!-- shown during gameplay -->
+      <div class="btn-row" id="play-btns" style="display: none">
+        <button id="btn-jump">JUMP</button>
+        <button id="btn-duck">DUCK (hold)</button>
+      </div>
+      <!-- shown on idle/dead/win -->
+      <button id="btn-start">HELP HER ESCAPE!</button>
+    </div>
+
+    <div class="instructions">
+      <strong>TAP JUMP</strong> to hop over roots &amp; rocks on the ground.<br />
+      <strong>HOLD DUCK</strong> to crawl under low beams from the ceiling.<br />
+      Reach the fire truck to win! You have <strong>3 hits</strong> before she's
+      totally stuck.
+    </div>
+
+    <a href="/" class="back-link">← back to expo</a>
+
+    <script>
+      (function () {
+        const canvas = document.getElementById("c");
+        const ctx = canvas.getContext("2d");
+        const LW = 400,
+          LH = 180;
+        canvas.width = LW;
+        canvas.height = LH;
+
+        const GROUND = 148;
+        const CEIL = 50;
+        const WIN_DIST = 3000;
+
+        const WOOD_DARK = "#5c3a1e";
+        const WOOD_MID = "#7a4f28";
+        const WOOD_LIGHT = "#9c6b3a";
+        const DIRT_DARK = "#3a2510";
+        const DIRT_MID = "#5c3d1e";
+        const FUR_MAIN = "#d4b483";
+        const FUR_LIGHT = "#e8d4aa";
+        const FUR_DARK = "#b8924a";
+        const FUR_FACE = "#e8cfa0";
+        const EAR_COL = "#c4a060";
+        const RAINBOW = [
+          "#ff0000",
+          "#ff6600",
+          "#ffcc00",
+          "#33cc33",
+          "#3399ff",
+          "#9933ff",
+          "#ff33cc",
+        ];
+
+        let state = "idle";
+        let dist = 0,
+          best = 0,
+          hits = 3,
+          frame = 0,
+          speed = 1.4,
+          animId = null;
+        let ducking = false;
+        let obstacles = [],
+          beams = [],
+          particles = [];
+        let nextSpawn = 200;
+        let scrollX = 0;
+        let winAnim = 0;
+
+        const dog = {
+          x: 72,
+          y: GROUND,
+          vy: 0,
+          grounded: true,
+          phase: 0,
+          hitFlash: 0,
+        };
+        const STAND_H = 36,
+          DUCK_H = 16;
+
+        // ---- UI refs ----
+        const distEl = document.getElementById("dist-disp");
+        const bestEl = document.getElementById("best-disp");
+        const hitsEl = document.getElementById("hits-disp");
+        const progBar = document.getElementById("prog-bar");
+        const msgEl = document.getElementById("msg");
+        const playBtns = document.getElementById("play-btns");
+        const btnStart = document.getElementById("btn-start");
+        const btnJump = document.getElementById("btn-jump");
+        const btnDuck = document.getElementById("btn-duck");
+
+        function showPlayButtons() {
+          playBtns.style.display = "flex";
+          btnStart.style.display = "none";
+        }
+        function showStartButton(label) {
+          playBtns.style.display = "none";
+          btnStart.style.display = "block";
+          btnStart.textContent = label;
+        }
+
+        // ---- JUMP ----
+        let holdingJump = false;
+
+        function startJump() {
+          if (state !== "running") return;
+          if (dog.grounded) {
+            dog.vy = -5;
+            dog.grounded = false;
+          }
+          holdingJump = true;
+        }
+        function releaseJump() {
+          holdingJump = false;
+        }
+
+        // ---- DUCK ----
+        function duckStart() {
+          if (state === "running") ducking = true;
+        }
+        function duckEnd() {
+          ducking = false;
+        }
+
+        // Jump button — hold to float
+        btnJump.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
+          startJump();
+        });
+        btnJump.addEventListener("pointerup", releaseJump);
+        btnJump.addEventListener("pointerleave", releaseJump);
+        btnJump.addEventListener("pointercancel", releaseJump);
+
+        // Duck button — hold
+        btnDuck.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
+          duckStart();
+        });
+        btnDuck.addEventListener("pointerup", duckEnd);
+        btnDuck.addEventListener("pointerleave", duckEnd);
+        btnDuck.addEventListener("pointercancel", duckEnd);
+
+        // Start button
+        btnStart.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
+          startGame();
+        });
+
+        // Keyboard: space/up = jump, down = duck
+        document.addEventListener("keydown", (e) => {
+          if (e.code === "Space" || e.code === "ArrowUp") {
+            e.preventDefault();
+            if (!e.repeat) startJump();
+          }
+          if (e.code === "ArrowDown") {
+            e.preventDefault();
+            duckStart();
+          }
+        });
+        document.addEventListener("keyup", (e) => {
+          if (e.code === "Space" || e.code === "ArrowUp") releaseJump();
+          if (e.code === "ArrowDown") duckEnd();
+        });
+
+        // ---- SPAWN ----
+        function spawnObstacle() {
+          const type = Math.random() < 0.5 ? "root" : "rock";
+          const h =
+            type === "root" ? 11 + Math.random() * 8 : 13 + Math.random() * 10;
+          const w =
+            type === "root" ? 14 + Math.random() * 10 : 12 + Math.random() * 8;
+          obstacles.push({ x: LW + 10, w, h, type });
+        }
+
+        function spawnBeam() {
+          // hang enough to force a duck but leave room to jump over if tall
+          const hang = 32 + Math.random() * 16;
+          const w = 10 + Math.random() * 8;
+          beams.push({ x: LW + 10, w, hang });
+        }
+
+        function spawnParticles(x, y, col, n) {
+          for (let i = 0; i < n; i++) {
+            const a = Math.random() * Math.PI * 2,
+              spd = 1 + Math.random() * 3;
+            particles.push({
+              x,
+              y,
+              vx: Math.cos(a) * spd,
+              vy: Math.sin(a) * spd - 2,
+              life: 1,
+              col,
+              r: 2 + Math.random() * 3,
+            });
+          }
+        }
+
+        // ---- DRAW DOG ----
+        function drawLhasa(x, y, phase, grounded, isDucking, hitFlash) {
+          ctx.save();
+          ctx.translate(x, y);
+          if (isDucking) ctx.scale(1, 0.48);
+          if (hitFlash > 0)
+            ctx.globalAlpha = 0.4 + Math.abs(Math.sin(hitFlash * 0.4)) * 0.6;
+
+          // tail
+          const wag = grounded ? Math.sin(phase * 2.5) * 5 : 3;
+          ctx.beginPath();
+          ctx.moveTo(-4, -20);
+          ctx.quadraticCurveTo(-16, -38 + wag * 0.3, -8, -44 + wag);
+          ctx.quadraticCurveTo(-2, -48 + wag, 4, -42 + wag);
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = FUR_DARK;
+          ctx.lineCap = "round";
+          ctx.stroke();
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = FUR_LIGHT;
+          ctx.beginPath();
+          ctx.moveTo(-4, -20);
+          ctx.quadraticCurveTo(-13, -36 + wag * 0.3, -6, -41 + wag);
+          ctx.stroke();
+
+          // body
+          ctx.fillStyle = FUR_MAIN;
+          ctx.beginPath();
+          ctx.roundRect(-16, -26, 44, 20, 8);
+          ctx.fill();
+          const prevAlpha = ctx.globalAlpha;
+          ctx.fillStyle = FUR_LIGHT;
+          ctx.globalAlpha = prevAlpha * 0.6;
+          ctx.beginPath();
+          ctx.roundRect(-12, -24, 36, 8, 5);
+          ctx.fill();
+          ctx.globalAlpha = prevAlpha;
+
+          // head
+          ctx.fillStyle = FUR_FACE;
+          ctx.beginPath();
+          ctx.arc(24, -30, 16, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = FUR_LIGHT;
+          ctx.globalAlpha = prevAlpha * 0.5;
+          ctx.beginPath();
+          ctx.ellipse(18, -40, 7, 3.5, -0.3, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(28, -41, 6, 3, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = prevAlpha;
+
+          // left ear
+          ctx.fillStyle = EAR_COL;
+          ctx.beginPath();
+          ctx.moveTo(11, -36);
+          ctx.quadraticCurveTo(2, -36, 3, -22);
+          ctx.quadraticCurveTo(7, -16, 13, -20);
+          ctx.quadraticCurveTo(15, -28, 11, -36);
+          ctx.closePath();
+          ctx.fill();
+
+          // right ear
+          ctx.fillStyle = EAR_COL;
+          ctx.beginPath();
+          ctx.moveTo(37, -36);
+          ctx.quadraticCurveTo(46, -36, 45, -22);
+          ctx.quadraticCurveTo(41, -16, 35, -20);
+          ctx.quadraticCurveTo(33, -28, 37, -36);
+          ctx.closePath();
+          ctx.fill();
+
+          // muzzle
+          ctx.fillStyle = FUR_MAIN;
+          ctx.beginPath();
+          ctx.ellipse(24, -26, 10, 8, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = FUR_LIGHT;
+          ctx.beginPath();
+          ctx.ellipse(24, -24, 7, 5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#2a1a1a";
+          ctx.beginPath();
+          ctx.ellipse(24, -27, 4, 2.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#1a0a0a";
+          ctx.beginPath();
+          ctx.ellipse(22, -27, 1.2, 1, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(26, -27, 1.2, 1, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // expression
+          ctx.strokeStyle = FUR_DARK;
+          ctx.lineWidth = 1;
+          ctx.lineCap = "round";
+          if (isDucking) {
+            ctx.beginPath();
+            ctx.moveTo(20, -22);
+            ctx.quadraticCurveTo(24, -23, 28, -22);
+            ctx.stroke();
+            ctx.strokeStyle = "#555";
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(13, -37);
+            ctx.lineTo(21, -35);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(27, -35);
+            ctx.lineTo(35, -37);
+            ctx.stroke();
+          } else {
+            ctx.beginPath();
+            ctx.moveTo(20, -22);
+            ctx.quadraticCurveTo(24, -20, 28, -22);
+            ctx.stroke();
+            ctx.fillStyle = "#e8608a";
+            ctx.beginPath();
+            ctx.ellipse(24, -19, 3, 3.5, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = "#c04070";
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(24, -21);
+            ctx.lineTo(24, -16);
+            ctx.stroke();
+          }
+
+          // eyes
+          [17, 31].forEach((ex) => {
+            ctx.fillStyle = "#0a0a0a";
+            ctx.beginPath();
+            ctx.arc(ex, -33, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "#2a2a2a";
+            ctx.beginPath();
+            ctx.arc(ex, -33, 3.8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            ctx.arc(ex + 1.5, -34.5, 1.8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(ex - 1, -31.5, 0.7, 0, Math.PI * 2);
+            ctx.fill();
+          });
+
+          // eyebrow tufts
+          ctx.fillStyle = FUR_DARK;
+          ctx.globalAlpha = prevAlpha * 0.65;
+          ctx.beginPath();
+          ctx.ellipse(17, -39, 5.5, 2, -0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(31, -39, 5.5, 2, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = prevAlpha;
+
+          // mohawk
+          for (let i = 0; i < 7; i++) {
+            const t = i / 6,
+              sx = 12 + t * 24;
+            const baseY = -43 - Math.sin(t * Math.PI) * 3;
+            const tipY = baseY - 9 - Math.sin(t * Math.PI) * 5;
+            ctx.fillStyle = RAINBOW[i];
+            ctx.beginPath();
+            ctx.moveTo(sx - 2.5, baseY);
+            ctx.lineTo(sx, tipY);
+            ctx.lineTo(sx + 2.5, baseY);
+            ctx.closePath();
+            ctx.fill();
+          }
+
+          // legs
+          ctx.lineWidth = 4;
+          ctx.lineCap = "round";
+          ctx.strokeStyle = FUR_DARK;
+          const la = grounded ? Math.abs(Math.sin(phase)) * 5 : 4;
+          const lb = grounded ? Math.abs(Math.sin(phase + Math.PI)) * 5 : 0;
+          ctx.beginPath();
+          ctx.moveTo(16, -9);
+          ctx.lineTo(18, 0 + la);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(16, -9);
+          ctx.lineTo(12, 0 - la * 0.4);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(-6, -9);
+          ctx.lineTo(-4, 0 + lb);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(-6, -9);
+          ctx.lineTo(-10, 0 - lb * 0.4);
+          ctx.stroke();
+
+          // paws
+          ctx.fillStyle = FUR_LIGHT;
+          ctx.beginPath();
+          ctx.ellipse(18, 2 + la, 4.5, 2.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(12, 2 - la * 0.4, 4.5, 2.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(-4, 2 + lb, 4.5, 2.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.ellipse(-10, 2 - lb * 0.4, 4.5, 2.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.globalAlpha = 1;
+          ctx.restore();
+        }
+
+        // ---- DRAW SHED ----
+        function drawShed(sx) {
+          // dirt floor
+          ctx.fillStyle = DIRT_DARK;
+          ctx.fillRect(0, GROUND, LW, LH - GROUND);
+          ctx.strokeStyle = DIRT_MID;
+          ctx.lineWidth = 1;
+          for (let i = 0; i < 6; i++) {
+            const lx = ((sx * 0.8 + i * 70) % (LW + 20)) - 10;
+            ctx.beginPath();
+            ctx.moveTo(lx, GROUND + 4);
+            ctx.lineTo(lx + 30, GROUND + 4);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(lx + 10, GROUND + 12);
+            ctx.lineTo(lx + 45, GROUND + 12);
+            ctx.stroke();
+          }
+          // ceiling planks
+          ctx.fillStyle = WOOD_DARK;
+          ctx.fillRect(0, 0, LW, CEIL);
+          ctx.strokeStyle = WOOD_MID;
+          ctx.lineWidth = 2;
+          for (let i = 0; i < 10; i++) {
+            const px = ((sx + i * 48) % (LW + 20)) - 10;
+            ctx.beginPath();
+            ctx.moveTo(px, 0);
+            ctx.lineTo(px, CEIL);
+            ctx.stroke();
+          }
+          ctx.strokeStyle = WOOD_LIGHT;
+          ctx.lineWidth = 0.5;
+          for (let i = 0; i < 14; i++) {
+            const px = ((sx + i * 32 + 8) % (LW + 10)) - 5;
+            ctx.beginPath();
+            ctx.moveTo(px, 8);
+            ctx.lineTo(px + 20, CEIL - 6);
+            ctx.stroke();
+          }
+          ctx.fillStyle = "#2a1a0a";
+          for (let i = 0; i < 8; i++) {
+            const nx = (sx + i * 55 + 20) % (LW + 10);
+            ctx.beginPath();
+            ctx.arc(nx, CEIL / 2, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          // dark gap
+          ctx.fillStyle = "#1a0d00";
+          ctx.fillRect(0, CEIL, LW, GROUND - CEIL);
+          const grad = ctx.createLinearGradient(0, CEIL, 0, GROUND);
+          grad.addColorStop(0, "rgba(80,50,20,0.2)");
+          grad.addColorStop(0.5, "rgba(0,0,0,0)");
+          grad.addColorStop(1, "rgba(30,15,0,0.25)");
+          ctx.fillStyle = grad;
+          ctx.fillRect(0, CEIL, LW, GROUND - CEIL);
+        }
+
+        // ---- DRAW OBSTACLES ----
+        function drawObstacle(o) {
+          if (o.type === "root") {
+            ctx.fillStyle = "#5c3a1e";
+            ctx.beginPath();
+            ctx.moveTo(o.x, GROUND);
+            ctx.quadraticCurveTo(
+              o.x + o.w * 0.3,
+              GROUND - o.h * 1.4,
+              o.x + o.w * 0.5,
+              GROUND - o.h
+            );
+            ctx.quadraticCurveTo(
+              o.x + o.w * 0.7,
+              GROUND - o.h * 1.2,
+              o.x + o.w,
+              GROUND
+            );
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "#7a4f28";
+            ctx.beginPath();
+            ctx.moveTo(o.x + 2, GROUND);
+            ctx.quadraticCurveTo(
+              o.x + o.w * 0.35,
+              GROUND - o.h * 0.9,
+              o.x + o.w * 0.55,
+              GROUND - o.h * 0.7
+            );
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#9c6b3a";
+            ctx.stroke();
+          } else {
+            ctx.fillStyle = "#666";
+            ctx.beginPath();
+            ctx.moveTo(o.x, GROUND);
+            ctx.lineTo(o.x + o.w * 0.15, GROUND - o.h);
+            ctx.lineTo(o.x + o.w * 0.5, GROUND - o.h * 1.1);
+            ctx.lineTo(o.x + o.w * 0.85, GROUND - o.h * 0.9);
+            ctx.lineTo(o.x + o.w, GROUND);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "rgba(255,255,255,0.15)";
+            ctx.beginPath();
+            ctx.ellipse(
+              o.x + o.w * 0.35,
+              GROUND - o.h * 0.7,
+              o.w * 0.18,
+              o.h * 0.2,
+              -0.3,
+              0,
+              Math.PI * 2
+            );
+            ctx.fill();
+          }
+        }
+
+        function drawBeam(b) {
+          ctx.fillStyle = WOOD_DARK;
+          ctx.fillRect(b.x, CEIL, b.w, b.hang);
+          ctx.fillStyle = WOOD_MID;
+          ctx.fillRect(b.x + 2, CEIL, b.w - 4, b.hang - 4);
+          ctx.fillStyle = "#444";
+          ctx.beginPath();
+          ctx.arc(b.x + b.w / 2, CEIL + 4, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // ---- DRAW FIRE TRUCK ----
+        function drawFireTruck(x, y) {
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.fillStyle = "#cc2200";
+          ctx.beginPath();
+          ctx.roundRect(-10, -38, 90, 34, 6);
+          ctx.fill();
+          ctx.fillStyle = "#dd3311";
+          ctx.beginPath();
+          ctx.roundRect(52, -52, 30, 48, [6, 6, 0, 0]);
+          ctx.fill();
+          ctx.fillStyle = "#aaddff";
+          ctx.beginPath();
+          ctx.roundRect(56, -48, 22, 16, 3);
+          ctx.fill();
+          ctx.strokeStyle = "#ffffff44";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(67, -48);
+          ctx.lineTo(67, -32);
+          ctx.stroke();
+          ctx.fillStyle = "white";
+          ctx.fillRect(-10, -22, 90, 5);
+          ctx.fillStyle = "#aaa";
+          ctx.fillRect(0, -42, 50, 5);
+          for (let i = 0; i < 7; i++) {
+            ctx.fillStyle = "#888";
+            ctx.fillRect(4 + i * 7, -42, 3, 5);
+          }
+          [8, 60].forEach((wx) => {
+            ctx.fillStyle = "#222";
+            ctx.beginPath();
+            ctx.arc(wx, 0, 13, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "#555";
+            ctx.beginPath();
+            ctx.arc(wx, 0, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = "#aaa";
+            ctx.beginPath();
+            ctx.arc(wx, 0, 4, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.fillStyle = "#ff4444";
+          ctx.beginPath();
+          ctx.ellipse(58, -55, 6, 4, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "rgba(255,80,0,0.2)";
+          ctx.beginPath();
+          ctx.arc(58, -55, 10 + Math.sin(frame * 0.15) * 4, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "white";
+          ctx.font = "bold 7px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("FIRE DEPT", 35, -12);
+          ctx.restore();
+        }
+
+        // ---- WIN SCENE ----
+        function drawFirefighter(x, y) {
+          ctx.save();
+          ctx.translate(x, y);
+          const wave = Math.sin(winAnim * 0.12) * 12;
+          ctx.strokeStyle = "#ffcc00";
+          ctx.lineWidth = 3;
+          ctx.lineCap = "round";
+          ctx.beginPath();
+          ctx.moveTo(0, -30);
+          ctx.lineTo(0, -10);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(-12, -20 + wave * 0.5);
+          ctx.lineTo(0, -20);
+          ctx.lineTo(12, -20 + wave);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(0, -10);
+          ctx.lineTo(-8, 0);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(0, -10);
+          ctx.lineTo(8, 0);
+          ctx.stroke();
+          ctx.fillStyle = "#ffcc00";
+          ctx.beginPath();
+          ctx.arc(0, -34, 7, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = "#cc2200";
+          ctx.beginPath();
+          ctx.ellipse(0, -37, 8, 4, 0, 0, Math.PI);
+          ctx.fill();
+          ctx.fillRect(-9, -37, 18, 3);
+          ctx.restore();
+        }
+
+        // ---- PARTICLES ----
+        function updateParticles() {
+          particles = particles.filter((p) => p.life > 0);
+          particles.forEach((p) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.15;
+            p.life -= 0.04;
+            ctx.globalAlpha = Math.max(0, p.life);
+            ctx.fillStyle = p.col;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+        }
+
+        // ---- COLLISION ----
+        function getDogBox() {
+          const dh = ducking ? DUCK_H : STAND_H;
+          return { l: dog.x - 6, r: dog.x + 32, t: dog.y - dh, b: dog.y };
+        }
+
+        function checkCollisions() {
+          const d = getDogBox();
+          for (const o of obstacles) {
+            if (
+              d.r > o.x + 2 &&
+              d.l < o.x + o.w - 2 &&
+              d.b > GROUND - o.h + 3 &&
+              d.t < GROUND
+            )
+              return true;
+          }
+          for (const b of beams) {
+            const beamBot = CEIL + b.hang;
+            if (
+              d.r > b.x + 1 &&
+              d.l < b.x + b.w - 1 &&
+              d.t < beamBot &&
+              d.b > CEIL
+            )
+              return true;
+          }
+          return false;
+        }
+
+        // ---- MAIN LOOP ----
+        function gameLoop() {
+          frame++;
+          speed = 1.4 + Math.min(dist / 1500, 1.2);
+          dist += speed * 0.55;
+          scrollX += speed;
+
+          const progress = Math.min(dist / WIN_DIST, 1);
+          progBar.style.width = progress * 100 + "%";
+          distEl.textContent = Math.floor(dist / 10);
+
+          if (dist >= WIN_DIST) {
+            state = "win";
+            if (Math.floor(dist / 10) > best) {
+              best = Math.floor(dist / 10);
+              bestEl.textContent = best;
+            }
+            msgEl.textContent =
+              "🚒 She made it! The firefighters saved the day!";
+            showStartButton("🐾 PLAY AGAIN");
+            winAnim = 0;
+            winLoop();
+            return;
+          }
+
+          // physics
+          dog.vy += holdingJump && !dog.grounded ? 0.07 : 0.18;
+          dog.y += dog.vy;
+          if (dog.y - STAND_H <= CEIL) {
+            dog.y = CEIL + STAND_H;
+            dog.vy = 0;
+            // holdingJump intentionally NOT reset — player keeps float control after ceiling
+          }
+          if (dog.y >= GROUND) {
+            dog.y = GROUND;
+            dog.vy = 0;
+            dog.grounded = true;
+          } else dog.grounded = false;
+          if (dog.grounded) dog.phase += 0.22;
+          if (dog.hitFlash > 0) dog.hitFlash--;
+
+          // spawn — one obstacle at a time, either ground OR ceiling
+          nextSpawn--;
+          const screenClear =
+            obstacles.every((o) => o.x < dog.x - 20) &&
+            beams.every((b) => b.x < dog.x - 20);
+          if (nextSpawn <= 0 && screenClear) {
+            if (Math.random() < 0.5) spawnObstacle();
+            else spawnBeam();
+            nextSpawn = Math.floor(
+              180 + Math.random() * 80 - Math.min(dist / 400, 35)
+            );
+          }
+          obstacles = obstacles.filter((o) => o.x > -60);
+          beams = beams.filter((b) => b.x > -30);
+          obstacles.forEach((o) => (o.x -= speed));
+          beams.forEach((b) => (b.x -= speed));
+
+          // collision
+          if (checkCollisions() && dog.hitFlash === 0) {
+            hits--;
+            dog.hitFlash = 35;
+            spawnParticles(dog.x + 12, dog.y - 22, "#ffaa00", 10);
+            hitsEl.textContent = hits <= 0 ? "💀" : "🐾".repeat(hits);
+            if (hits <= 0) {
+              state = "dead";
+              if (Math.floor(dist / 10) > best) {
+                best = Math.floor(dist / 10);
+                bestEl.textContent = best;
+              }
+              msgEl.textContent = "She's totally stuck! 😅 Tap to try again";
+              showStartButton("🚒 TRY AGAIN");
+              renderStatic();
+              return;
+            }
+          }
+
+          // ---- RENDER ----
+          ctx.clearRect(0, 0, LW, LH);
+          drawShed(scrollX);
+          beams.forEach((b) => drawBeam(b));
+          obstacles.forEach((o) => drawObstacle(o));
+
+          // fire truck approaches near the end
+          const truckX = LW - (WIN_DIST - dist) * 0.09;
+          if (truckX > LW * 0.25)
+            drawFireTruck(Math.min(truckX, LW - 100), GROUND);
+
+          updateParticles();
+          drawLhasa(
+            dog.x,
+            dog.y,
+            dog.phase,
+            dog.grounded,
+            ducking,
+            dog.hitFlash
+          );
+
+          if (dog.hitFlash > 0 && Math.floor(dog.hitFlash / 5) % 2 === 0) {
+            ctx.fillStyle = "rgba(255,80,0,0.15)";
+            ctx.fillRect(0, 0, LW, LH);
+          }
+
+          animId = requestAnimationFrame(gameLoop);
+        }
+
+        function winLoop() {
+          winAnim++;
+          ctx.clearRect(0, 0, LW, LH);
+          drawShed(scrollX);
+          drawFireTruck(LW - 115, GROUND);
+          drawFirefighter(LW * 0.5, GROUND);
+          drawLhasa(
+            dog.x + Math.sin(winAnim * 0.1) * 3,
+            dog.y,
+            winAnim * 0.25,
+            true,
+            false,
+            0
+          );
+          for (let i = 0; i < 2; i++)
+            spawnParticles(
+              Math.random() * LW,
+              CEIL + 10,
+              RAINBOW[Math.floor(Math.random() * 7)],
+              1
+            );
+          updateParticles();
+          ctx.fillStyle = "rgba(255,200,0,0.08)";
+          ctx.fillRect(0, 0, LW, LH);
+          if (state === "win") animId = requestAnimationFrame(winLoop);
+        }
+
+        function renderStatic() {
+          ctx.clearRect(0, 0, LW, LH);
+          drawShed(scrollX);
+          beams.forEach((b) => drawBeam(b));
+          obstacles.forEach((o) => drawObstacle(o));
+          drawLhasa(dog.x, dog.y, dog.phase, true, ducking, 0);
+          ctx.fillStyle = "rgba(200,50,0,0.2)";
+          ctx.fillRect(0, 0, LW, LH);
+          ctx.font = "22px serif";
+          ctx.textAlign = "center";
+          ctx.fillText("😵", dog.x + 16, dog.y - 52);
+        }
+
+        // ---- START ----
+        function startGame() {
+          if (animId) cancelAnimationFrame(animId);
+          state = "running";
+          dist = 0;
+          frame = 0;
+          speed = 1.4;
+          scrollX = 0;
+          hits = 3;
+          ducking = false;
+          obstacles = [];
+          beams = [];
+          particles = [];
+          nextSpawn = 200;
+          holdingJump = false;
+          dog.y = GROUND;
+          dog.vy = 0;
+          dog.grounded = true;
+          dog.phase = 0;
+          dog.hitFlash = 0;
+          hitsEl.textContent = "🐾🐾🐾";
+          progBar.style.width = "0%";
+          msgEl.textContent =
+            "TAP JUMP to hop over roots • HOLD DUCK to crawl under beams";
+          showPlayButtons();
+          animId = requestAnimationFrame(gameLoop);
+        }
+
+        // idle draw
+        ctx.clearRect(0, 0, LW, LH);
+        drawShed(0);
+        drawLhasa(dog.x, dog.y, 0, true, false, 0);
+        ctx.fillStyle = "rgba(0,0,0,0.5)";
+        ctx.fillRect(0, CEIL, LW, GROUND - CEIL);
+        ctx.fillStyle = "#f9a825";
+        ctx.font = "bold 15px 'Bebas Neue',monospace";
+        ctx.textAlign = "center";
+        ctx.fillText("TAP TO START!", LW / 2, CEIL + (GROUND - CEIL) / 2 + 6);
+      })();
+    </script>
+  </body>
+</html>
