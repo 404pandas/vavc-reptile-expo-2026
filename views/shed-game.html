@@ -195,14 +195,12 @@
       <h1>Stuck Under<br />The Shed!</h1>
       <p>Help Katara escape before the firefighters give up</p>
       <p>
-        Share this game with friends at
-        <a
-          href="https://vavc.netlify.app/shed-game"
-          style="color: #f9a825; text-decoration: none"
-          target="_blank"
-        >
-          https://vavc.netlify.app/shed-game</a
-        >
+        Share this game with friends!
+        <button
+          id="copy-link-btn"
+          onclick="navigator.clipboard.writeText('https://vavc.netlify.app/shed-game').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)})"
+          style="background:#f9a825;color:#1a1a1a;border:none;border-radius:6px;padding:3px 10px;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:1px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;"
+        >Copy Link</button>
       </p>
     </div>
 
@@ -358,6 +356,11 @@
         btnStart.addEventListener("pointerdown", (e) => {
           e.preventDefault();
           startGame();
+        });
+
+        // Canvas — block any accidental tap-through to page links
+        canvas.addEventListener("pointerdown", (e) => {
+          e.preventDefault();
         });
 
         // Keyboard: space/up = jump, down = duck
