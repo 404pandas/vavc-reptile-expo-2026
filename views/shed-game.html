@@ -199,8 +199,23 @@
         <button
           id="copy-link-btn"
           onclick="navigator.clipboard.writeText('https://vavc.netlify.app/shed-game').then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000)})"
-          style="background:#f9a825;color:#1a1a1a;border:none;border-radius:6px;padding:3px 10px;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:1px;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;"
-        >Copy Link</button>
+          style="
+            background: #f9a825;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+          "
+        >
+          Copy Link
+        </button>
       </p>
     </div>
 
@@ -1079,7 +1094,6 @@
         ctx.fillStyle = "#f9a825";
         ctx.font = "bold 15px 'Bebas Neue',monospace";
         ctx.textAlign = "center";
-        ctx.fillText("TAP TO START!", LW / 2, CEIL + (GROUND - CEIL) / 2 + 6);
       })();
     </script>
   </body>
