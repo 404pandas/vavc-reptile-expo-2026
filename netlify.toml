@@ -47,11 +47,6 @@
   status = 200
 
 [[redirects]]
-  from = "/crested-gecko"
-  to = "/crested-gecko.html"
-  status = 200
-
-[[redirects]]
   from = "/red-eared-slider"
   to = "/red-eared-slider.html"
   status = 200

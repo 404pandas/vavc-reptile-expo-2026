@@ -163,7 +163,7 @@ function buildFooter() {
     </div><!-- .row -->
 
     <div class="footer-bottom">
-      © 2026 All Animal Reptile Expo · Made with 💓 by Vital Animal Veterinary Clinic · Care information is for reference only · Always consult a qualified exotic vet
+      <a href="https://scratch.mit.edu/projects/1296872601/" target="_blank">©</a 2026 All Animal Reptile Expo · Made with 💓 by Vital Animal Veterinary Clinic · Care information is for reference only · Always consult a qualified exotic vet
     </div>
   </div>
 </footer>`;
